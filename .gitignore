@@ -2,6 +2,7 @@
 *.aux
 *.bak
 *.bbl
+*.brf
 *.blg
 *.fdb_latexmk
 *.fls
@@ -11,7 +12,8 @@
 *.ind
 *.ist
 *.log
-*.log
+*.lof
+*.lot
 *.nav
 *.out
 *.snm

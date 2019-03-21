@@ -1,0 +1,272 @@
+% !TEX program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% Plantilla de la clase `scrbook` del paquete KOMA-script
+% Francisco Torralbo Torralbo
+% 20 de marzo de 2019
+
+\documentclass{scrbook}
+
+\KOMAoptions{%
+  fontsize=11pt,        % Tamaño de fuente
+  paper=a4,             % Tamaño del papel
+  headings=normal,      % Tamaño de letra para los títulos: small, normal, big
+  parskip=half,         % Espacio entre párrafos: full (una línea) o half (media línea)
+  headsepline=false,    % Una linea separa la cabecera del texto
+  cleardoublepage=empty,% No imprime cabecera ni pie en páginas en blanco 
+  chapterprefix=false,  % No antepone el texto "capítulo" antes del número
+  appendixprefix=false,	% No antepone el texto "Apéndice" antes de la letra
+  listof=totoc,		    	% Añade a la tabla de contenidos la lista de tablas y figuras
+  index=totoc,			    % Añade a la talba de contenidos una entrada para el índice
+  bibliography=totoc,	  % Añade a la tabla de contenidos una entrada para bibliografía
+  % BCOR=5mm,           % Reserva margen interior para la encuadernación. 
+                        % El valor dependerá el tipo de encuadernado y del grosor del libro.
+  % DIV=14,             % Cálcula el diseño de página según ciertos 
+                        % parámetros. Al aumentar el número aumentamos el ancho de texto y disminuimos el ancho del margen. Una opción de 14 producirá márgenes estrechos y texto ancho.
+}
+
+% DISEÑO DE PÁGINA
+% Si queremos cambiar el diseño de página (por ejemplo modificando la opción DIV o BCOR de \KOMAoptions) podemos descomentar la siguiente línea para que LaTeX dibuje las diferentes áreas de la página (cabecera, pie, texto, margen) y así ayudar a decidir el nuevo diseño.
+
+% \usepackage{showframe}  
+
+% INFORMACIÓN PARA LA VERSIÓN IMPRESA
+% Si el documento ha de ser impreso en papel de tamaño a4 pero el tamaño del documento (elegido en \KOMAoptions con la ocpión paper) no es a4 descomentar la siguiente línea. El paquete crop se encargará de centrar el documento en un a4 e imprimir unas guías de corte. El procedimiento completo para imprenta sería el siguiente:
+% 0. Determinar, según el tipo de encuadernación del documento, el ancho reservado para el proceso de encuadernación (preguntar en la imprenta), es decir, la anchura del área del papel que se pierde durante el proceso de encuadernación. Fijar la varibale BCOR de \KOMAoptions a dicho valor.
+% 1. Descomentar la siguiente línea e imprimir una única página con las guías de corte
+% 2. Cambiar la opción `cross` por `cam` (o `off`) en el paquete crop y volver a compilar. Imprimir el documento (las guías de corte impresas no inferfieren con el texto).
+% 3. Usar la página con las guías impresas en el punto 1 para cortar todas las páginas.
+
+% \usepackage[a4, odd, center, pdflatex, cross]{crop} % Permite imprimir el documento en un a4 (si el tamaño es más pequeño) mostrando unas guías de corte. Útil para imprenta.
+
+% VERSIÓN ELECTRÓNICA PARA TABLETA
+% Las opciones siguientes seleccionan un tamaño de impresión similar a una tableta de 9 pulgadas con márgenes estrechos. Útil para producir una versión en pdf para ser leída en una tableta en lugar de impresa.
+
+% \KOMAoptions{fontsize=10pt, paper=19.7104cm:14.7828cm, twoside=false, BCOR=0cm, DIV=14}
+
+% SECTION NUMBER IN MARGIN
+% \renewcommand*\sectionformat{\thesection\autodot\hspace{5cm}}
+% \renewcommand*{\sectionformat}{\makebox[5cm][l]{\thesection\autodot\hfil}}
+
+% \renewcommand\chapterlinesformat[3]{%
+%   \makebox[0pt][r]{#2}#3%
+% } 
+% \renewcommand\sectionlinesformat[4]{%
+%   \makebox[0pt][r]{#3}#4%
+% } 
+
+% \renewcommand*{\sectionformat}{\thesection}
+% \renewcommand*{\partformat}{\thepart}
+
+% \renewcommand*{\sectionmarkformat}{% 
+%   \thesection\autodot}
+
+
+% \renewcommand*{\sectionformat}{% 
+%   \makebox[0pt][r]{\thesection\autodot\enskip}}
+% \renewcommand*{\subsectionformat}{% 
+%   \makebox[0pt][r]{\thesubsection\autodot\enskip}}
+% \renewcommand*{\subsubsectionformat}{% 
+%   \makebox[0pt][r]{%
+%     \thesubsubsection\autodot\enskip}} 
+% \renewcommand*{\paragraphformat}{%
+%   \makebox[0pt][r]{\theparagraph\autodot\enskip}} 
+% \renewcommand*{\paragraphformat}{%
+%   \makebox[0pt][r]{% 
+%     \thesubparagraph\autodot\enskip}}
+
+% ---------------------------------------------------------------------
+%	PAQUETES 
+% ---------------------------------------------------------------------
+
+% CODIFICACIÓN E IDIOMA
+% ---------------------------------------------------------------------
+\usepackage[utf8]{inputenc} 			    % Codificación de caracteres
+\usepackage[spanish]{babel}          	% Idioma
+																			% Usar la opción es-tabla para cambiar Cuadro por Tabla. Ver la discusión en CervanTeX al respecto http://www.aq.upm.es/Departamentos/Fisica/agmartin/webpublico/latex/FAQ-CervanTeX/FAQ-CervanTeX-6.html
+
+% MATEMÁTICAS
+% ---------------------------------------------------------------------
+\usepackage{amsmath, amsthm, amssymb} % Paquetes matemáticas
+\usepackage[mathscr]{eucal} 					% Proporciona el comando \mathscr para
+                                      % fuentes de tipo manuscrito en modo matemático sin sobreescribir el comando \mathcal
+
+% TIPOGRAFÍA 
+% ---------------------------------------------------------------------
+% El paquete microtype mejora la tipografía del documento.
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+
+% Las tipografías elegidas para el documento son las siguientes
+% Normal font: 			URW Palladio typeface. 
+% Sans-serif font: 	Iwona
+% Monospace font: 	Inconsolata
+% Consultar http://www.tug.dk/FontCatalogue/ para seleccionar otra tipografía.
+% Es conveniente elegir aquellas que tienen soporte matemático.
+\usepackage[T1]{fontenc}
+\usepackage[sc, osf]{mathpazo} \linespread{1.05}         
+\usepackage{inconsolata}
+\renewcommand{\sfdefault}{iwona}
+
+
+% Selecciona el tipo de fuente para los títulos (capítulo, sección, subsección) del documento.
+\setkomafont{disposition}{\sffamily\bfseries}
+
+\recalctypearea % Necesario tras definir la tipografía a usar.
+
+% TABLAS, GRÁFICOS Y LISTADOS DE CÓDIGO
+% ---------------------------------------------------------------------
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.5} % Aumenta el espacio vertical entre las filas de un entorno tabular
+
+\usepackage{xcolor, graphicx}
+% Carpeta donde buscar los archivos de imagen por defecto
+\graphicspath{{img/}}
+
+% Para incluir la portada como fondo.
+% Añadir \AddToShipoutPicture*{\BackgroundPic} a la página de título.
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+	\put(0,0){%
+		\parbox[b][\paperheight]{\paperwidth}{%
+			\vfill
+			\centering
+			\includegraphics[width=\paperwidth,height=\paperheight,%
+			keepaspectratio]{portada-ugr}%
+			\vfill
+}}}
+
+\usepackage{listings} % Para la inclusión de trozos de código
+
+% CABECERAS
+% ---------------------------------------------------------------------
+% Si queremos modificar las cabeceras del documento podemos usar el paquete
+% `scrlayer-scrpage` de KOMA-Script. Consultar la documentación al respecto.
+% \usepackage[automark]{scrlayer-scrpage}
+
+% VARIOS
+% ---------------------------------------------------------------------
+
+%\usepackage{showkeys}	% Muestra las etiquetas del documento. Útil para revisar las referencias cruzadas.
+
+% ÍNDICE 
+% ----------------------------------------------------------------------
+% \index{} para añadir un elemento e 
+% \index{main!sub} para añadir un elementos "sub" bajo la categoría "main".
+% \index{termino|textbf} para dar formato al número de página (negrita).
+% \index{termino|see{termino relacionado}} para crear una referencia cruzada
+
+% Ejemplo: \index{espacio homogéneo}, \index{superficie!mínima}, \index{esfera|see{espacio homogéneo}}
+
+% Para generar el índice hay que compilar el documento con MakeIndex. Generalmente los editores se encargan de ello automáticamente.
+\usepackage{makeidx}
+%\usepackage{showidx} % Muestra en el margen del documento las entradas añadidas al índice. Útil para revisar el documento. Si está activo el índice no se genera
+\makeindex
+
+% ---------------------------------------------------------------------
+% COMANDOS Y ENTORNOS
+% ---------------------------------------------------------------------
+% Cargamos un archivo externo donde hemos incluido todos los comandos
+% propios que vamos a usar en el documento.
+\input{packages/comandos-entornos.tex}
+
+% --------------------------------------------------------------------
+% INFORMACIÓN DEL LIBRO Y EL AUTOR
+% --------------------------------------------------------------------
+\usepackage{xspace} % Para problemas de espaciado al definir comandos
+
+\newcommand{\myTitle}{Institutiones calculi differentialis}
+\newcommand{\myName}{Leonard Euler\xspace}
+\newcommand{\myDegree}{\textsc{Doctor en Matematicas}\xspace}
+\newcommand{\myDepartment}{Departamento de Matematicas\xspace}
+\newcommand{\myUni}{\protect{Universidad de Basel}\xspace}
+\newcommand{\myLocation}{Basel, Suiza\xspace}
+\newcommand{\myTime}{Febrero 2019\xspace}
+
+% HYPERREFERENCES
+% --------------------------------------------------------------------
+\usepackage[pagebackref]{hyperref}
+\input{packages/hyperref}
+
+\begin{document}
+
+% --------------------------------------------------------------------
+% FRONTMATTER
+% -------------------------------------------------------------------
+\frontmatter % Desactiva la numeración de capítulos y usa numeración romana para las páginas
+
+% \pagestyle{plain} % No imprime cabeceras
+
+\include{FrontBackmatter/Titlepage}
+\include{FrontBackmatter/DirtyTitlepage}
+\include{FrontBackmatter/Titleback}
+\include{FrontBackmatter/Dedication}
+\include{FrontBackmatter/Contents}
+\include{FrontBackmatter/Foreword}
+\include{FrontBackmatter/Acknowledgments}
+
+% \pagestyle{scrheadings} % A partir de ahora sí imprime cabeceras
+
+\include{FrontBackmatter/introduction}
+
+% --------------------------------------------------------------------
+% MAINMATTER
+% --------------------------------------------------------------------
+\mainmatter % activa la numeración de capítulos, resetea la numeración de las páginas y usa números arábigos
+
+\setpartpreamble[c][0.75\linewidth]{%
+	\bigskip % Deja un espacio vertical en la parte superior
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+	vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+	no sea takimata sanctus est Lorem ipsum dolor sit amet.
+}
+\part{Primera parte} % Dividir un libro en partes es opcional
+\setchapterpreamble[c][0.75\linewidth]{%
+	\sffamily
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+	vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+	no sea takimata sanctus est Lorem ipsum dolor sit amet.\par\bigskip
+}
+\include{capitulos/chapter01}
+% Añadir tantos capítulos como sea necesario
+
+\cleardoublepage\part{Segunda parte}
+\include{capitulos/chapter02}
+
+% --------------------------------------------------------------------
+% APPENDIX: Opcional
+% --------------------------------------------------------------------
+
+\appendix % Reinicia la numeración de los capítulos y usa letras para numerarlos
+\pdfbookmark[-1]{Apéndices}{appendix} % Alternativamente podemos agrupar los apéndices con un nuevo \part{Apéndices}
+\include{capitulos/appendix01}
+% Añadir tantos apéndices como sea necesario 
+
+
+% -------------------------------------------------------------------
+% BACKMATTER
+% -------------------------------------------------------------------
+
+\backmatter % Desactiva la numeración de los capítulos
+\pdfbookmark[-1]{Referencias e Índices}{BM-Referencias}
+
+% BIBLIOGRAFÍA
+%-------------------------------------------------------------------
+
+\setbibpreamble{Las referencias se listan por orden alfabético. Aquellas referencias con más de un autor están ordenadas de acuerdo con el primer autor.\par\bigskip}
+\bibliographystyle{alpha}
+\begin{small} % Normalmente la bibliografía se imprime en un tamaño de letra más pequeño.
+\bibliography{library.bib}
+\end{small}
+
+
+% ÍNDICE TERMINOLÓGICO %------------------------------------------------------------------- 
+
+\cleardoublepage 
+\setindexpreamble{Todos los números impresos en \textbf{negrita} hacen referencia a la página donde se encuentra la definición del término. Los números de página impresos normalmente hacen referencia a las páginas donde dicho término es usado.\par\bigskip} 
+\begin{footnotesize} % Normalmente el índice se imprime en un tamaño de letra más pequeño.
+\printindex 
+\end{footnotesize}
+
+\end{document}

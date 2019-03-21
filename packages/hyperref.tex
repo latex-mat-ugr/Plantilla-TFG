@@ -1,0 +1,45 @@
+% Opciones para el paquete hyperref
+%----------------------------------
+
+\hypersetup{%
+  % hidelinks,            % Enlaces sin color ni borde. El borde no se imprime
+  linkbordercolor=0.8 0 0,
+  citebordercolor=0 0.8 0,
+  citebordercolor=0 0.8 0,
+  colorlinks = true,            % Color en texto de los enlaces. Comentar esta línea o cambiar `true` por `false` para imprimir el documento.
+  linkcolor = [rgb]{0.5, 0, 0}, % Color de los enlaces internos
+  urlcolor = [rgb]{0, 0, 0.5},  % Color de los hipervínculos
+  citecolor = [rgb]{0, 0.5, 0}, % Color de las referencias bibliográficas
+	pdftitle={\myTitle},%
+	pdfauthor={\textcopyright\ \myName, \myUni},%
+	pdfsubject={},%
+	pdfkeywords={},%
+	pdfcreator={pdfLaTeX},%
+}
+
+% Redefinición del estilo para mostrar las referencias cruzadas en la bibliografía.
+\renewcommand*{\backref}[1]{}
+\renewcommand*{\backrefalt}[4]{{\footnotesize [%
+    \ifcase #1 No citado%
+    \or Citado en pág.~#2%
+    \else Citado en págs. #2%
+    \fi%
+]}}
+
+% Etiquetas en español para el comando \autoref
+\def\chapterautorefname{Capítulo}
+\def\sectionautorefname{Sección}
+\def\subsectionautorefname{Subsección}
+\def\figureautorefname{Fig.}
+
+\def\theoremautorefname{Teorema}
+\def\propositionautorefname{Proposición}
+\def\lemmaautorefname{Lema}
+\def\corollaryautorefname{Corolario}
+\def\definitionautorefname{Def.}
+\def\remarkautorefname{Observación}
+\def\exerciseautorefname{Ejercicio}
+\def\exampleautorefname{E.j.}
+
+% Pone automáticamente un parántesis para las ecuaciones
+\def\equationautorefname~#1\null{Ec.~(#1)\null}

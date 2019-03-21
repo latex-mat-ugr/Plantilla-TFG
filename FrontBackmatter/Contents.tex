@@ -1,0 +1,41 @@
+% !TeX root = ../libro.tex
+% !TeX encoding = utf8
+
+%*******************************************************
+% Table of Contents
+%*******************************************************
+\phantomsection
+\pdfbookmark[0]{\contentsname}{toc}
+
+\setcounter{tocdepth}{2} % <-- 2 includes up to subsections in the ToC
+\setcounter{secnumdepth}{3} % <-- 3 numbers up to subsubsections
+
+% \manualmark
+% \markboth{\textsc{\contentsname}}{\textsc{\contentsname}}
+\tableofcontents 
+
+%*******************************************************
+% List of Figures and of the Tables
+%*******************************************************
+
+    % *******************************************************
+    %  List of Figures
+    % *******************************************************    
+    \phantomsection 
+    \listoffigures
+
+    %*******************************************************
+    % List of Tables
+    %*******************************************************
+    \phantomsection 
+    \listoftables
+    
+    %*******************************************************
+    % List of Listings
+    % The package \usepackage{listings} is needed
+    %*******************************************************      
+	  % \phantomsection 
+    % \renewcommand{\lstlistlistingname}{Listados de código}
+    % \lstlistoflistings 
+
+\cleardoublepage

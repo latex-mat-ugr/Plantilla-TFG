@@ -11,7 +11,7 @@
 \documentclass{scrbook}
 
 \KOMAoptions{%
-  fontsize=11pt,        % Tamaño de fuente
+  fontsize=10pt,        % Tamaño de fuente
   paper=a4,             % Tamaño del papel
   headings=normal,      % Tamaño de letra para los títulos: small, normal, big
   parskip=half,         % Espacio entre párrafos: full (una línea) o half (media línea)
@@ -22,9 +22,9 @@
   listof=totoc,		    	% Añade a la tabla de contenidos la lista de tablas y figuras
   index=totoc,			    % Añade a la talba de contenidos una entrada para el índice
   bibliography=totoc,	  % Añade a la tabla de contenidos una entrada para bibliografía
-  % BCOR=5mm,           % Reserva margen interior para la encuadernación. 
+  BCOR=5mm,           % Reserva margen interior para la encuadernación. 
                         % El valor dependerá el tipo de encuadernado y del grosor del libro.
-  % DIV=14,             % Cálcula el diseño de página según ciertos 
+  DIV=10,             % Cálcula el diseño de página según ciertos 
                         % parámetros. Al aumentar el número aumentamos el ancho de texto y disminuimos el ancho del margen. Una opción de 14 producirá márgenes estrechos y texto ancho.
 }
 
@@ -56,7 +56,7 @@
 % CODIFICACIÓN E IDIOMA
 % ---------------------------------------------------------------------
 \usepackage[utf8]{inputenc} 			    % Codificación de caracteres
-\usepackage[spanish]{babel}          	% Idioma
+\usepackage[spanish, es-tabla]{babel} % Idioma
 																			% Usar la opción es-tabla para cambiar Cuadro por Tabla. Ver la discusión en CervanTeX al respecto http://www.aq.upm.es/Departamentos/Fisica/agmartin/webpublico/latex/FAQ-CervanTeX/FAQ-CervanTeX-6.html
 
 % MATEMÁTICAS
@@ -85,6 +85,9 @@
 % Selecciona el tipo de fuente para los títulos (capítulo, sección, subsección) del documento.
 \setkomafont{disposition}{\sffamily\bfseries}
 
+% Cambia el ancho de la cita. Al inicio de un capítulo podemos usar el comando \dictum[autor]{cita} para añadir una cita famosa de un autor.
+\renewcommand{\dictumwidth}{0.45\textwidth} 
+
 \recalctypearea % Necesario tras definir la tipografía a usar.
 
 % TABLAS, GRÁFICOS Y LISTADOS DE CÓDIGO
@@ -109,7 +112,7 @@
 			\vfill
 }}}
 
-\usepackage{listings} % Para la inclusión de trozos de código
+% \usepackage{listings} % Para la inclusión de trozos de código
 
 % CABECERAS
 % ---------------------------------------------------------------------
@@ -144,7 +147,7 @@
 \input{paquetes/comandos-entornos.tex}
 
 % --------------------------------------------------------------------
-% INFORMACIÓN DEL LIBRO Y EL AUTOR
+% INFORMACIÓN DEL TFG Y EL AUTOR
 % --------------------------------------------------------------------
 \usepackage{xspace} % Para problemas de espaciado al definir comandos
 
@@ -195,18 +198,14 @@
 
 \setpartpreamble[c][0.75\linewidth]{%
 	\bigskip % Deja un espacio vertical en la parte superior
-	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-	vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-	no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  Si el trabajo se divide en diferentes partes es posible incluir al inicio de cada una de ellas un breve resumen que indique el contenido de la misma. Esto es opcional.
 }
 \part{Primera parte} % Dividir un libro en partes es opcional
+
 \setchapterpreamble[c][0.75\linewidth]{%
 	\sffamily
-	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-	tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-	vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-	no sea takimata sanctus est Lorem ipsum dolor sit amet.\par\bigskip
+  Al inicio de cada capítulo puede incluirse un breve resumen. Esto es opcional.
+	\par\bigskip
 }
 \include{capitulos/capitulo01}
 % Añadir tantos capítulos como sea necesario

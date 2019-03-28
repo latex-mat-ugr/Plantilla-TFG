@@ -20,3 +20,4 @@ Estos requisitos, según las [instrucciones](http://grados.ugr.es/matematicas/pa
 La plantilla hace uso de la clase `scrbook` del paquete `KOMA-Script` que normalmente viene instalado por defecto en las distribuciones de TeX más usuales. Dicha plantilla tiene las siguientes características:
 - Tamaño de impresión: a4.
 - Tipografía: [URW Palladio](http://www.tug.dk/FontCatalogue/urwpalladio/) (serif), [Iwona](http://www.tug.dk/FontCatalogue/iwona/) (sans-serif) e [Inconsolata](http://www.tug.dk/FontCatalogue/inconsolata/) (monospace)
+

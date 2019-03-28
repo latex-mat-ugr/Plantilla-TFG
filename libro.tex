@@ -148,13 +148,19 @@
 % --------------------------------------------------------------------
 \usepackage{xspace} % Para problemas de espaciado al definir comandos
 
-\newcommand{\myTitle}{Institutiones calculi differentialis}
-\newcommand{\myName}{Leonard Euler\xspace}
-\newcommand{\myDegree}{\textsc{Doctor en Matematicas}\xspace}
-\newcommand{\myDepartment}{Departamento de Matematicas\xspace}
-\newcommand{\myUni}{\protect{Universidad de Basel}\xspace}
-\newcommand{\myLocation}{Basel, Suiza\xspace}
-\newcommand{\myTime}{Febrero 2019\xspace}
+\newcommand{\miTitulo}{Institutiones calculi differentialis}
+\newcommand{\miNombre}{Leonard Euler\xspace}
+\newcommand{\miGrado}{Grado en Matemáticas\xspace}
+\newcommand{\miUniversidad}{Universidad de Granada\xspace}
+% Añadir tantos tutores como sea necesario separando cada uno de ellos
+% mediante el comando `\\\medskip` y una línea en blanco
+\newcommand{\miTutor}{
+  Nombre del tutor 1 \\ \emph{Departamento del tutor 1} 
+  \\\medskip
+
+  Nombre del tutor 2 \\ \emph{Departamento del tutor 2}
+}
+\newcommand{\miFecha}{Febrero 2019\xspace}
 
 % HYPERREFERENCES
 % --------------------------------------------------------------------
@@ -172,7 +178,6 @@
 
 \include{FrontBackmatter/Titlepage}
 \include{FrontBackmatter/DirtyTitlepage}
-\include{FrontBackmatter/Titleback}
 \include{FrontBackmatter/Dedication}
 \include{FrontBackmatter/Contents}
 \include{FrontBackmatter/Foreword}

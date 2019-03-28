@@ -9,8 +9,10 @@
   \phantomsection 
   \pdfbookmark[1]{Título}{title}
 
-  % if you want the titlepage to be centered, uncomment and fine-tune the line below (KOMA classes environment)
-  %\begin{addmargin}[-1cm]{-3cm}
+  % Para que el título esté centrado en la página.
+  % Los valores numéricos deberán elegirse de acuerdo con el diseño de
+  % página.
+  \begin{addmargin}[-1cm]{-3cm}
   \begin{center}
     \large  
 
@@ -37,7 +39,7 @@
     \vfill                      
 
   \end{center}  
-  %\end{addmargin}       
+  \end{addmargin}       
 \end{titlepage}   
-
+\cleardoublepage
 \endinput

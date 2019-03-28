@@ -141,7 +141,7 @@
 % ---------------------------------------------------------------------
 % Cargamos un archivo externo donde hemos incluido todos los comandos
 % propios que vamos a usar en el documento.
-\input{packages/comandos-entornos.tex}
+\input{paquetes/comandos-entornos.tex}
 
 % --------------------------------------------------------------------
 % INFORMACIÓN DEL LIBRO Y EL AUTOR
@@ -165,7 +165,7 @@
 % HYPERREFERENCES
 % --------------------------------------------------------------------
 \usepackage[pagebackref]{hyperref}
-\input{packages/hyperref}
+\input{paquetes/hyperref}
 
 \begin{document}
 
@@ -207,11 +207,11 @@
 	vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
 	no sea takimata sanctus est Lorem ipsum dolor sit amet.\par\bigskip
 }
-\include{capitulos/chapter01}
+\include{capitulos/capitulo01}
 % Añadir tantos capítulos como sea necesario
 
 \cleardoublepage\part{Segunda parte}
-\include{capitulos/chapter02}
+\include{capitulos/capitulo02}
 
 % --------------------------------------------------------------------
 % APPENDIX: Opcional
@@ -219,7 +219,8 @@
 
 \appendix % Reinicia la numeración de los capítulos y usa letras para numerarlos
 \pdfbookmark[-1]{Apéndices}{appendix} % Alternativamente podemos agrupar los apéndices con un nuevo \part{Apéndices}
-\include{capitulos/appendix01}
+
+\include{apendices/apendice01}
 % Añadir tantos apéndices como sea necesario 
 
 

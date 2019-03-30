@@ -56,8 +56,14 @@
 % CODIFICACIÓN E IDIOMA
 % ---------------------------------------------------------------------
 \usepackage[utf8]{inputenc} 			    % Codificación de caracteres
-\usepackage[spanish, es-tabla]{babel} % Idioma
-																			% Usar la opción es-tabla para cambiar Cuadro por Tabla. Ver la discusión en CervanTeX al respecto http://www.aq.upm.es/Departamentos/Fisica/agmartin/webpublico/latex/FAQ-CervanTeX/FAQ-CervanTeX-6.html
+
+% Selección del idioma: cargamos por defecto inglés y español (aunque este último es el idioma por defecto para el documento). Cuando queramos cambiar de idioma escribiremos:
+% \selectlanguage{english} o \selectlanguage{spanish}
+
+\usepackage[english,spanish]{babel}   % el último idioma es el principal
+% Opciones para el paquete babel:
+  \def\spanishoptions{es-lcroman,es-noshorthands,es-tabla}
+	% Usar la opción es-tabla para cambiar Cuadro por Tabla. Ver la discusión en CervanTeX al respecto http://www.aq.upm.es/Departamentos/Fisica/agmartin/webpublico/latex/FAQ-CervanTeX/FAQ-CervanTeX-6.html
 
 % MATEMÁTICAS
 % ---------------------------------------------------------------------

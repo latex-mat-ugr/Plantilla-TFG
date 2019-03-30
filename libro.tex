@@ -62,7 +62,7 @@
 
 \usepackage[english,spanish]{babel}   % el último idioma es el principal
 % Opciones para el paquete babel:
-  % \def\spanishoptions{es-lcroman,es-noshorthands}
+  \def\spanishoptions{es-lcroman,es-noshorthands}
 	% Usar la opción es-tabla para cambiar Cuadro por Tabla. Ver la discusión en CervanTeX al respecto http://www.aq.upm.es/Departamentos/Fisica/agmartin/webpublico/latex/FAQ-CervanTeX/FAQ-CervanTeX-6.html
 
 % MATEMÁTICAS
@@ -191,17 +191,17 @@
 
 % \pagestyle{plain} % No imprime cabeceras
 
-\include{preliminares/portada}
-\include{preliminares/titulo}
-\include{preliminares/declaracion-originalidad}
-\include{preliminares/dedicatoria}
-\include{preliminares/tablacontenidos}
-\include{preliminares/agradecimientos}
+\include{preliminares/portada}                    
+\include{preliminares/titulo}                     
+\include{preliminares/declaracion-originalidad}   
+\include{preliminares/dedicatoria}                % Opcional
+\include{preliminares/tablacontenidos}            
+\include{preliminares/agradecimientos}            % Opcional
 
 % \pagestyle{scrheadings} % A partir de ahora sí imprime cabeceras
 
-\include{preliminares/summary}
-\include{preliminares/introduccion}
+\include{preliminares/summary}                    
+\include{preliminares/introduccion}               
 
 % --------------------------------------------------------------------
 % MAINMATTER
@@ -212,7 +212,7 @@
 	\bigskip % Deja un espacio vertical en la parte superior
   Si el trabajo se divide en diferentes partes es posible incluir al inicio de cada una de ellas un breve resumen que indique el contenido de la misma. Esto es opcional.
 }
-\part{Primera parte} % Dividir un libro en partes es opcional
+\part{Primera parte} % Dividir un libro en partes OPCIONAL
 
 \include{capitulos/capitulo01}
 % Añadir tantos capítulos como sea necesario
@@ -234,7 +234,7 @@
 % GLOSARIO: Opcional
 % --------------------------------------------------------------------
 
-\include{glosario}
+\include{glosario} 
 
 % -------------------------------------------------------------------
 % BACKMATTER
@@ -253,7 +253,8 @@
 \end{small}
 
 
-% ÍNDICE TERMINOLÓGICO %------------------------------------------------------------------- 
+% ÍNDICE TERMINOLÓGICO  (Opcional) 
+%------------------------------------------------------------------- 
 
 \cleardoublepage 
 \setindexpreamble{Todos los números impresos en \textbf{negrita} hacen referencia a la página donde se encuentra la definición del término. Los números de página impresos normalmente hacen referencia a las páginas donde dicho término es usado.\par\bigskip} 

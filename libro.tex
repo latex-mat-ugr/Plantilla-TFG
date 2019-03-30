@@ -99,14 +99,17 @@
 % Carpeta donde buscar los archivos de imagen por defecto
 \graphicspath{{img/}}
 
-% Para incluir la portada como fondo.
-% Añadir \AddToShipoutPicture*{\BackgroundPic} a la página de título.
+% IMAGEN DE LA PORTADA
+% Existen varias opciones para la imagen de fondo de la portada del TFG. Todas ellas tienen en logotipo de la universidad de Granada en la cabecera. Las opciones son las siguientes:
+% 1. portada-ugr y portada-ugr-color: diseño con marca de agua basada en el logo de la UGR (en escala de grises y color).
+% 2. portada-ugr-sencilla y portada-ugr-sencilla-color: portada únicamente con el logotipo de la UGR en la cabecera.
 \usepackage{eso-pic}
 \newcommand\BackgroundPic{%
 	\put(0,0){%
 		\parbox[b][\paperheight]{\paperwidth}{%
 			\vfill
 			\centering
+      % Indicar la imagen de fondo en el siguiente comando
 			\includegraphics[width=\paperwidth,height=\paperheight,%
 			keepaspectratio]{portada-ugr-color}%
 			\vfill

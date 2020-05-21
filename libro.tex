@@ -6,7 +6,7 @@
 % Grado en Matemáticas de la Universidad de Granada.
 
 % Francisco Torralbo Torralbo
-% 20 de marzo de 2019
+% miércoles, 29 de abril de 2020
 
 \documentclass{scrbook}
 
@@ -14,7 +14,6 @@
   fontsize=10pt,        % Tamaño de fuente
   paper=a4,             % Tamaño del papel
   headings=normal,      % Tamaño de letra para los títulos: small, normal, big
-  parskip=half,         % Espacio entre párrafos: full (una línea) o half (media línea)
   % parskip=half,         % Espacio entre párrafos: full (una línea) o half (media línea)
   headsepline=false,    % Una linea separa la cabecera del texto
   cleardoublepage=empty,% No imprime cabecera ni pie en páginas en blanco 
@@ -28,11 +27,6 @@
   DIV=10,             % Cálcula el diseño de página según ciertos 
                         % parámetros. Al aumentar el número aumentamos el ancho de texto y disminuimos el ancho del margen. Una opción de 14 producirá márgenes estrechos y texto ancho.
 }
-
-% DISEÑO DE PÁGINA
-% Si queremos cambiar el diseño de página (por ejemplo modificando la opción DIV o BCOR de \KOMAoptions) podemos descomentar la siguiente línea para que LaTeX dibuje las diferentes áreas de la página (cabecera, pie, texto, margen) y así ayudar a decidir el nuevo diseño.
-
-% \usepackage{showframe}  
 
 % INFORMACIÓN PARA LA VERSIÓN IMPRESA
 % Si el documento ha de ser impreso en papel de tamaño a4 pero el tamaño del documento (elegido en \KOMAoptions con la ocpión paper) no es a4 descomentar la línea que carga el paquete `crop` más abajo. El paquete crop se encargará de centrar el documento en un a4 e imprimir unas guías de corte. El procedimiento completo para imprenta sería el siguiente:
@@ -61,10 +55,6 @@
 % Selección del idioma: cargamos por defecto inglés y español (aunque este último es el idioma por defecto para el documento). Cuando queramos cambiar de idioma escribiremos:
 % \selectlanguage{english} o \selectlanguage{spanish}
 
-\usepackage[english,spanish]{babel}   % el último idioma es el principal
-% Opciones para el paquete babel:
-  \def\spanishoptions{es-lcroman,es-noshorthands}
-	% Usar la opción es-tabla para cambiar Cuadro por Tabla. Ver la discusión en CervanTeX al respecto http://www.aq.upm.es/Departamentos/Fisica/agmartin/webpublico/latex/FAQ-CervanTeX/FAQ-CervanTeX-6.html
 \usepackage[english, spanish, es-nodecimaldot, es-noindentfirst, es-tabla]{babel}
 
 % Opciones cargadas para el paquete babel:
@@ -98,7 +88,6 @@
 \usepackage[sc, osf]{mathpazo} \linespread{1.05}         
 \usepackage[scaled=.95,type1]{cabin} % sans serif in style of Gill Sans
 \usepackage{inconsolata}
-\renewcommand{\sfdefault}{iwona}
 % \renewcommand{\sfdefault}{iwona}
 
 
@@ -151,7 +140,6 @@
 % ÍNDICE 
 % Para generar el índice hay que compilar el documento con MakeIndex. Generalmente los editores se encargan de ello automáticamente.
 % ----------------------------------------------------------------------
-% \index{} para añadir un elemento e 
 % \index{} para añadir un elemento
 % \index{main!sub} para añadir un elementos "sub" bajo la categoría "main".
 % \index{termino|textbf} para dar formato al número de página (negrita).
@@ -159,7 +147,6 @@
 
 % Ejemplo: \index{espacio homogéneo}, \index{superficie!mínima}, \index{esfera|see{espacio homogéneo}}
 
-% Para generar el índice hay que compilar el documento con MakeIndex. Generalmente los editores se encargan de ello automáticamente.
 \usepackage{makeidx}
 %\usepackage{showidx} % Muestra en el margen del documento las entradas añadidas al índice. Útil para revisar el documento. Si está activo el índice no se genera
 \makeindex
@@ -262,7 +249,7 @@
 %-------------------------------------------------------------------
 
 \setbibpreamble{Las referencias se listan por orden alfabético. Aquellas referencias con más de un autor están ordenadas de acuerdo con el primer autor.\par\bigskip}
-\bibliographystyle{alpha}
+\bibliographystyle{alpha} 
 \begin{small} % Normalmente la bibliografía se imprime en un tamaño de letra más pequeño.
 \bibliography{library.bib}
 \end{small}
@@ -272,7 +259,6 @@
 %------------------------------------------------------------------- 
 
 \cleardoublepage 
-\setindexpreamble{Todos los números impresos en \textbf{negrita} hacen referencia a la página donde se encuentra la definición del término. Los números de página impresos normalmente hacen referencia a las páginas donde dicho término es usado.\par\bigskip} 
 \begin{footnotesize} % Normalmente el índice se imprime en un tamaño de letra más pequeño.
 \printindex 
 \end{footnotesize}

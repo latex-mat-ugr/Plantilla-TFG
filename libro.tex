@@ -64,6 +64,15 @@
 % Opciones para el paquete babel:
   \def\spanishoptions{es-lcroman,es-noshorthands}
 	% Usar la opción es-tabla para cambiar Cuadro por Tabla. Ver la discusión en CervanTeX al respecto http://www.aq.upm.es/Departamentos/Fisica/agmartin/webpublico/latex/FAQ-CervanTeX/FAQ-CervanTeX-6.html
+\usepackage[english, spanish, es-nodecimaldot, es-noindentfirst, es-tabla]{babel}
+
+% Opciones cargadas para el paquete babel:
+  % es-nodecimaldot: No cambia el punto decimal por una coma en modo matemático.
+  % es-noindentfirst: No sangra los párrafos tras los títulos.
+  % es-tabla: cambia el título del entorno `table` de "Cuadro" a "Tabla"
+
+% Otras opciones del paquete spanish-babel:
+  \unaccentedoperators % Desactiva los acentos en los operadores matemáticso (p.e. \lim, \max, ...). Eliminar esta opción si queremos que vayan acentuados
 
 % MATEMÁTICAS
 % ---------------------------------------------------------------------

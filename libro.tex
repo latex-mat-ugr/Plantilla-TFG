@@ -193,17 +193,17 @@
 
 % \pagestyle{plain} % No imprime cabeceras
 
-\include{preliminares/portada}                    
-\include{preliminares/titulo}                     
-\include{preliminares/declaracion-originalidad}   
-\include{preliminares/dedicatoria}                % Opcional
-\include{preliminares/tablacontenidos}            
-\include{preliminares/agradecimientos}            % Opcional
+\input{preliminares/portada}                    
+\input{preliminares/titulo}                     
+\input{preliminares/declaracion-originalidad}   
+\input{preliminares/dedicatoria}                % Opcional
+\input{preliminares/tablacontenidos}            
+\input{preliminares/agradecimientos}            % Opcional
 
 % \pagestyle{scrheadings} % A partir de ahora sí imprime cabeceras
 
-\include{preliminares/summary}                    
-\include{preliminares/introduccion}               
+\input{preliminares/summary}                    
+\input{preliminares/introduccion}               
 
 % --------------------------------------------------------------------
 % MAINMATTER
@@ -216,11 +216,11 @@
 }
 \part{Primera parte} % Dividir un libro en partes OPCIONAL
 
-\include{capitulos/capitulo01}
+\input{capitulos/capitulo01}
 % Añadir tantos capítulos como sea necesario
 
 \cleardoublepage\part{Segunda parte}
-\include{capitulos/capitulo02}
+\input{capitulos/capitulo02}
 
 % --------------------------------------------------------------------
 % APPENDIX: Opcional
@@ -229,14 +229,14 @@
 \appendix % Reinicia la numeración de los capítulos y usa letras para numerarlos
 \pdfbookmark[-1]{Apéndices}{appendix} % Alternativamente podemos agrupar los apéndices con un nuevo \part{Apéndices}
 
-\include{apendices/apendice01}
+\input{apendices/apendice01}
 % Añadir tantos apéndices como sea necesario 
 
 % --------------------------------------------------------------------
 % GLOSARIO: Opcional
 % --------------------------------------------------------------------
 
-\include{glosario} 
+\input{glosario} 
 
 % -------------------------------------------------------------------
 % BACKMATTER

@@ -4,7 +4,7 @@ Plantilla TFG
 ## Introducción
 Este repositorio contiene una plantilla para la realización de un TFG mediante LaTeX que cumple con los [requisitos para la memoria de TFG](http://grados.ugr.es/matematicas/pages/infoacademica/tfg/fechaseinstruccionesdefensatfgcurso20172018) del Grado de Matemáticas de la Universidad de Granada.
 
-Estos requisitos, según las [instrucciones](http://grados.ugr.es/matematicas/pages/infoacademica/tfg/fechaseinstruccionesdefensatfgcurso20172018/!) para el curso 2019-2020 son los siguientes:
+Estos requisitos, según las [instrucciones](https://grados.ugr.es/matematicas/pages/infoacademica/tfg/normastfg1920/!) para el curso 2019-2020 son los siguientes:
 
 - La  memoria  debe  realizarse  con  un  procesador  de  texto  científico,  preferiblemente (La)TeX.
 - La portada  debe contener  el  logo  de  la UGR,  incluir  el  título del TFG, el nombre del estudiante y especificar el grado, la facultad y el curso actual.

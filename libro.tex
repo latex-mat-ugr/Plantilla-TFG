@@ -147,9 +147,12 @@
 
 % Ejemplo: \index{espacio homogéneo}, \index{superficie!mínima}, \index{esfera|see{espacio homogéneo}}
 
-\usepackage{makeidx}
+% Activar los siguientes comandos para generar el índice terminológico. Ver también comandos al final de este documento para incluir dicho índice en el pdf final.
+% \usepackage{makeidx}
+% \makeindex
+
+% Para revisar las entradas al índice conforme las incluimos en el documento es útil el siguiente paquete. Conviene observar que mientras esté cargado no se generará el índice.
 %\usepackage{showidx} % Muestra en el margen del documento las entradas añadidas al índice. Útil para revisar el documento. Si está activo el índice no se genera
-\makeindex
 
 % ---------------------------------------------------------------------
 % COMANDOS Y ENTORNOS
@@ -260,9 +263,11 @@
 % ÍNDICE TERMINOLÓGICO  (Opcional) 
 %------------------------------------------------------------------- 
 
-\cleardoublepage 
-\begin{footnotesize} % Normalmente el índice se imprime en un tamaño de letra más pequeño.
-\printindex 
-\end{footnotesize}
+% Para incluir el índice terminológico es necesario descomentar los siguientes comandos. Incluir un índice terminológico es opcional
+
+% \cleardoublepage 
+% \begin{footnotesize} % Normalmente el índice se imprime en un tamaño de letra más pequeño.
+% \printindex 
+% \end{footnotesize}
 
 \end{document}

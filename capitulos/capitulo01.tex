@@ -50,7 +50,7 @@ La estructura de la plantilla es la siguiente\footnote{Los nombres de las carpet
     
   \item Fichero \texttt{library.bib}: Para incluir las referencias bibliográficas en formato \texttt{bibtex}. Son útiles las herramientas \href{https://www.doi2bib.org/}{doi2bib} y \href{https://www.ottobib.com/}{OttoBib} para generar de forma automática el código bibtex de una referencia a partir de su \textsc{doi} o su \textsc{isbn}.
 
-  \item Fichero \texttt{glosario.tex}: Para incluir un glosario en el trabajo (opcional). 
+  \item Fichero \texttt{glosario.tex}: Para incluir un glosario en el trabajo (opcional). Si no queremos incluir un glosario deberemos borrar el comando \verb+\input{glosario.tex}+ del fichero \texttt{libro.tex} y posteriormente borrar el fichero \texttt{glosario.tex}
 
    \item Fichero \texttt{libro.tex}: El documento maestro del TFG que hay que compilar con \LaTeX\ para obtener el pdf. En dicho documento hay que cambiar la \emph{información del título del \textsc{tfg} y el autor así como los tutores}.
 \end{itemize}

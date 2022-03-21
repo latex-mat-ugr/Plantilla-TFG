@@ -19,6 +19,9 @@
 
 % Redefinición del estilo para mostrar las referencias cruzadas en la bibliografía.
 \renewcommand*{\backref}[1]{}
+\renewcommand{\backrefsep}{, }
+\renewcommand{\backreftwosep}{ y }
+\renewcommand{\backreflastsep}{ y }
 \renewcommand*{\backrefalt}[4]{{\footnotesize [%
     \ifcase #1 No citado%
     \or Citado en pág.~#2%

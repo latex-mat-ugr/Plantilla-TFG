@@ -18,16 +18,16 @@
 }
 
 % Redefinición del estilo para mostrar las referencias cruzadas en la bibliografía.
-\renewcommand*{\backref}[1]{}
-\renewcommand{\backrefsep}{, }
-\renewcommand{\backreftwosep}{ y }
-\renewcommand{\backreflastsep}{ y }
-\renewcommand*{\backrefalt}[4]{{\footnotesize [%
-    \ifcase #1 No citado%
-    \or Citado en pág.~#2%
-    \else Citado en págs. #2%
-    \fi%
-]}}
+% \renewcommand*{\backref}[1]{}
+% \renewcommand{\backrefsep}{, }
+% \renewcommand{\backreftwosep}{ y }
+% \renewcommand{\backreflastsep}{ y }
+% \renewcommand*{\backrefalt}[4]{{\footnotesize [%
+%     \ifcase #1 No citado%
+%     \or Citado en pág.~#2%
+%     \else Citado en págs. #2%
+%     \fi%
+% ]}}
 
 % Etiquetas en español para el comando \autoref
 \def\chapterautorefname{Capítulo}
@@ -46,4 +46,4 @@
 \def\ejemploautorefname{E.j.}
 
 % Pone automáticamente un parántesis para las ecuaciones
-\def\equationautorefname~#1\null{Ec.~(#1)\null}
+\def\equationautorefname~#1\null{(#1)\null}

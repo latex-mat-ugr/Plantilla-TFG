@@ -4,9 +4,10 @@
 \newcommand{\archivoportada}{portada-ugr-sencilla-color}
 
 
-% -------------------------------------------------------------------
+% ===================================================================
 % OPCIONES DE LA CLASE
-% -------------------------------------------------------------------
+% ===================================================================
+
 % PRINT
 \DeclareOption{print}{
   \PassOptionsToClass{fontsize=10pt, paper=a4, twoside=true, BCOR=5mm, DIV=10}{scrbook}
@@ -15,6 +16,8 @@
 % TABLET
 \DeclareOption{tablet}{
   \PassOptionsToClass{fontsize=12pt, paper=19.7104cm:14.7828cm, twoside=false, BCOR=0cm, DIV=20}{scrbook}
+% Para que la portada quede centrada correctamente hay que editar el
+% archivo `portada.tex` y eliminar el entorno `addmargin`
 }
 \DeclareOption{es-nodecimaldot}{
   % No cambia el punto decimal por una coma en modo matemático.
@@ -28,9 +31,6 @@
 
 \LoadClass[headings=normal, headsepline=false, cleardoublepage=empty, chapterprefix=false, appendixprefix=false,	listof=totoc, index=totoc, bibliography=totoc]{scrbook}
 
-% -------------------------------------------------------------------
-% PAQUETES
-% ===================================================================
 
 % -------------------------------------------------------------------
 % IMAGEN DE LA PORTADA
@@ -50,6 +50,9 @@
         \vfill
   }}}
 
+% -------------------------------------------------------------------
+% PAQUETES Y OPCIONES
+% -------------------------------------------------------------------
 \RequirePackage[utf8]{inputenc} 
 
 \RequirePackage[english, spanish, es-nodecimaldot, es-noindentfirst, es-tabla]{babel}
@@ -84,10 +87,9 @@
 
 \RequirePackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 
-% Las tipografías elegidas para el documento, siguiendo la guía de estilo de la UGR,
-% son las siguientes
+% Las tipografías elegidas para el documento, siguiendo la guía de estilo de la UGR, son las siguientes
 % Normal font: 			URW Palladio typeface. 
-% Sans-serif font: 	Gill Sans
+% Sans-serif font: 	Gill Sans (paquete cabin)
 % Monospace font: 	Inconsolata
 \RequirePackage[T1]{fontenc}
 \RequirePackage[sc, osf]{mathpazo} \linespread{1.05}         
@@ -105,10 +107,7 @@
 
 \RequirePackage{xurl}
 
-% -------------------------------------------------------------------
 \RequirePackage{hyperref}
-
-% Opciones del paquete hyperref
 
 \hypersetup{%
   % hidelinks,            % Enlaces sin color ni borde. El borde no se imprime
@@ -153,8 +152,9 @@
 \RequirePackage{graphicx}
   % Carpeta donde buscar los archivos de imagen por defecto
   \graphicspath{{img/}}
+
 % -------------------------------------------------------------------
-% Estilos de la clase KOMA
+% ESTILOS DE LA CLASE KOMA
 % -------------------------------------------------------------------
 % Selecciona el tipo de fuente para los títulos (capítulo, sección, subsección) del documento.
 \setkomafont{disposition}{\sffamily\bfseries}
@@ -163,6 +163,7 @@
 \renewcommand{\dictumwidth}{0.45\textwidth} 
 
 \recalctypearea % Necesario tras definir la tipografía a usar.
+  \RequirePackage{showframe}
 
 
 % TITLE
@@ -174,8 +175,7 @@
   \pdfbookmark[1]{Título}{title}
 
   % Para que el título esté centrado en la página.
-  % Los valores numéricos deberán elegirse de acuerdo con el diseño de
-  % página (sobre todo si se cambia la opción BCOR o DIV).
+  % Los valores numéricos deberán elegirse de acuerdo con el diseño de página (sobre todo si se cambia la opción BCOR o DIV).
   \begin{addmargin}[2.575cm]{0cm}
   \begin{flushleft}
     \Large  

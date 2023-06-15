@@ -1,48 +1,26 @@
 % !TEX program = pdflatex
 % !TEX encoding = UTF-8 Unicode
 
-% Plantilla de la clase `scrbook` del paquete KOMA-script para la
-% elaboración de un TFG siguiendo las directrices del la comisión del
-% Grado en Matemáticas de la Universidad de Granada.
+% Plantilla, basada en la clase `scrbook` del paquete KOMA-script,  para la elaboración de un TFG siguiendo las directrices del la comisión del Grado en Matemáticas de la Universidad de Granada.
 
 % Francisco Torralbo Torralbo
-% miércoles, 29 de abril de 2020
 
-\documentclass{ugrTFG}
-
-% INFORMACIÓN PARA LA VERSIÓN IMPRESA
-% Si el documento ha de ser impreso en papel de tamaño a4 pero el tamaño del documento (elegido en \KOMAoptions con la ocpión paper) no es a4 descomentar la línea que carga el paquete `crop` más abajo. El paquete crop se encargará de centrar el documento en un a4 e imprimir unas guías de corte. El procedimiento completo para imprenta sería el siguiente:
-% 0. Determinar, según el tipo de encuadernación del documento, el ancho reservado para el proceso de encuadernación (preguntar en la imprenta), es decir, la anchura del área del papel que se pierde durante el proceso de encuadernación. Fijar la varibale BCOR de \KOMAoptions a dicho valor.
-% 1. Descomentar la siguiente línea e imprimir una única página con las guías de corte
-% 2. Cambiar la opción `cross` por `cam` (o `off`) en el paquete crop y volver a compilar. Imprimir el documento (las guías de corte impresas no inferfieren con el texto).
-% 3. Usar la página con las guías impresas en el punto 1 para cortar todas las páginas.
-
-% \usepackage[a4, odd, center, pdflatex, cross]{crop} % Permite imprimir el documento en un a4 (si el tamaño es más pequeño) mostrando unas guías de corte. Útil para imprenta.
+\documentclass[print, color]{ugrTFG}
 
 % VERSIÓN ELECTRÓNICA PARA TABLETA
-% Las opciones siguientes seleccionan un tamaño de impresión similar a una tableta de 9 pulgadas con márgenes estrechos. Útil para producir una versión en pdf para ser leída en una tableta en lugar de impresa.
-% Para que la portada quede centrada correctamente hay que editar el
-% archivo `portada.tex` y eliminar el entorno `addmargin`
-
-% \KOMAoptions{fontsize=10pt, paper=19.7104cm:14.7828cm, twoside=false, BCOR=0cm, DIV=14}
-
-
-% Selección del idioma: cargamos por defecto inglés y español (aunque este último es el idioma por defecto para el documento). Cuando queramos cambiar de idioma escribiremos:
-% \selectlanguage{english} o \selectlanguage{spanish}
-
-
+% Cambiando la opción "print" por "tablet" generaremos un pdf adaptado para leerlo en tabletas de 9 pulgadas.
 
 % -------------------------------------------------------------------
 % INFORMACIÓN DEL TFG Y EL AUTOR
-% --------------------------------------------------------------------
+% -------------------------------------------------------------------
 
 \newcommand{\miTitulo}{Título del trabajo\xspace}
 \newcommand{\miNombre}{Nombre apellidos\xspace}
 \newcommand{\miGrado}{Grado en Matemáticas}
 \newcommand{\miFacultad}{Facultad de Ciencias}
 \newcommand{\miUniversidad}{Universidad de Granada}
-% Añadir tantos tutores como sea necesario separando cada uno de ellos
-% mediante el comando `\medskip` y una línea en blanco
+
+% Añadir tantos tutores como sea necesario separando cada uno de ellos mediante el comando `\medskip` y una línea en blanco
 \newcommand{\miTutor}{
   Nombre del tutor 1 \\ \emph{Departamento del tutor 1} 
 
@@ -60,34 +38,26 @@
 
 \begin{document}
 
-% --------------------------------------------------------------------
+\maketitle
+
+% -------------------------------------------------------------------
 % FRONTMATTER
 % -------------------------------------------------------------------
 \frontmatter % Desactiva la numeración de capítulos y usa numeración romana para las páginas
 
-% \pagestyle{plain} % No imprime cabeceras
-
-\input{preliminares/portada}                    
-\input{preliminares/titulo}                     
 \input{preliminares/declaracion-originalidad}   
 \input{preliminares/dedicatoria}                % Opcional
 \input{preliminares/tablacontenidos}            
 \input{preliminares/agradecimientos}            % Opcional
 
-% \pagestyle{scrheadings} % A partir de ahora sí imprime cabeceras
-
 \input{preliminares/summary}                    
 \input{preliminares/introduccion}               
 
-% --------------------------------------------------------------------
+% -------------------------------------------------------------------
 % MAINMATTER
-% --------------------------------------------------------------------
+% -------------------------------------------------------------------
 \mainmatter % activa la numeración de capítulos, resetea la numeración de las páginas y usa números arábigos
 
-\setpartpreamble[c][0.75\linewidth]{%
-	\bigskip % Deja un espacio vertical en la parte superior
-  Si el trabajo se divide en diferentes partes es posible incluir al inicio de cada una de ellas un breve resumen que indique el contenido de la misma. Esto es opcional.
-}
 \part{Primera parte} % Dividir un libro en partes OPCIONAL
 
 \input{capitulos/capitulo01}
@@ -96,9 +66,9 @@
 \cleardoublepage\part{Segunda parte}
 \input{capitulos/capitulo02}
 
-% --------------------------------------------------------------------
+% -------------------------------------------------------------------
 % APPENDIX: Opcional
-% --------------------------------------------------------------------
+% -------------------------------------------------------------------
 
 \appendix % Reinicia la numeración de los capítulos y usa letras para numerarlos
 \pdfbookmark[-1]{Apéndices}{appendix} % Alternativamente podemos agrupar los apéndices con un nuevo \part{Apéndices}
@@ -106,9 +76,9 @@
 \input{apendices/apendice01}
 % Añadir tantos apéndices como sea necesario 
 
-% --------------------------------------------------------------------
+% -------------------------------------------------------------------
 % GLOSARIO: Opcional
-% --------------------------------------------------------------------
+% -------------------------------------------------------------------
 
 \input{glosario} 
 

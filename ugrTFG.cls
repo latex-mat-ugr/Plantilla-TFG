@@ -100,8 +100,46 @@
 \RequirePackage{xspace} % Para problemas de espaciado al definir comandos
 
 \RequirePackage{xurl}
+
+% -------------------------------------------------------------------
 \RequirePackage{hyperref}
 
+% Opciones del paquete hyperref
+
+\hypersetup{%
+  % hidelinks,            % Enlaces sin color ni borde. El borde no se imprime
+  linkbordercolor=0.8 0 0,
+  citebordercolor=0 0.8 0,
+  citebordercolor=0 0.8 0,
+  colorlinks = true,            % Color en texto de los enlaces. Comentar esta línea o cambiar `true` por `false` para imprimir el documento.
+  linkcolor = [rgb]{0.5, 0, 0}, % Color de los enlaces internos
+  urlcolor = [rgb]{0, 0, 0.5},  % Color de los hipervínculos
+  citecolor = [rgb]{0, 0.5, 0}, % Color de las referencias bibliográficas
+  pdfsubject={Trabajo de fin de Grado},%
+	pdfkeywords={},%
+	pdfcreator={pdfLaTeX},%
+}
+
+% Etiquetas en español para el comando \autoref
+\def\chapterautorefname{Capítulo}
+\def\appendixautorefname{Apéndice}
+\def\sectionautorefname{Sección}
+\def\subsectionautorefname{Subsección}
+\def\figureautorefname{Fig.}
+\def\tableautorefname{Tabla}
+
+\def\teoremaautorefname{Teorema}
+\def\proposicionautorefname{Proposición}
+\def\lemaautorefname{Lema}
+\def\corolarioautorefname{Corolario}
+\def\definicionautorefname{Def.}
+\def\observacionautorefname{Observación}
+\def\ejemploautorefname{E.j.}
+
+% Pone automáticamente un parántesis para las ecuaciones
+\def\equationautorefname~#1\null{(#1)\null}
+
+% -------------------------------------------------------------------
 % TABLAS, GRÁFICOS Y LISTADOS DE CÓDIGO
 % -------------------------------------------------------------------
 \RequirePackage{booktabs}

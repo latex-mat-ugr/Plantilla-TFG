@@ -1,6 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ugrTFG}[2023/06/15 Clase de documento para elaboración TFG en Matemáticas según normativa de la Universidad de Granada]
 
+\newcommand{\archivoportada}{portada-ugr-sencilla-color}
 
 
 % -------------------------------------------------------------------
@@ -159,3 +160,96 @@
 \renewcommand{\dictumwidth}{0.45\textwidth} 
 
 \recalctypearea % Necesario tras definir la tipografía a usar.
+
+
+% TITLE
+
+  \renewcommand{\maketitle}{
+\begin{titlepage}
+  \AddToShipoutPicture*{\BackgroundPic}
+  \phantomsection 
+  \pdfbookmark[1]{Título}{title}
+
+  % Para que el título esté centrado en la página.
+  % Los valores numéricos deberán elegirse de acuerdo con el diseño de
+  % página (sobre todo si se cambia la opción BCOR o DIV).
+  \begin{addmargin}[2.575cm]{0cm}
+  \begin{flushleft}
+    \Large  
+    \hfill\vfil
+
+    \large{\textsf{\miFacultad}}
+    \vfill
+
+    {\large\textsc\miGrado} \vfill
+
+
+    {\large\textsc{trabajo de fin de grado}}
+
+    \begin{flushleft}
+      \Huge
+      \setstretch{0.8}
+      \miTitulo
+    \end{flushleft}
+
+    \vfill\vfill\vfill\vfill
+
+    \textsf{\normalsize{Presentado por:}}\\
+    {\normalsize\textrm{\miNombre}} 
+    \bigskip
+
+    \textsf{\normalsize{Curso académico \miCurso}}
+  \end{flushleft}  
+  \end{addmargin}       
+
+\end{titlepage}   
+\cleardoublepage
+
+\thispagestyle{empty}
+
+\begin{center}
+  \large  
+
+  \vspace*{\stretch{1}}
+
+  \begingroup
+  \huge{\miTitulo} \\ \bigskip
+  \endgroup
+
+  \textrm{\miNombre}
+
+  \vspace{\stretch{5}}
+
+\end{center}  
+
+\newpage
+\thispagestyle{empty}
+
+\hfill
+
+\vfill
+
+\miNombre \textit{\miTitulo}.
+
+Trabajo de fin de Grado. Curso académico \miCurso.
+\bigskip
+
+\begin{minipage}[t]{0.25\textwidth}
+  \flushleft
+  \textbf{Responsable de tutorización}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+  \flushleft
+  \miTutor
+\end{minipage}
+\begin{minipage}[t]{0.30\textwidth}
+  \flushright
+  \miGrado
+  \medskip
+
+  \miFacultad
+  \medskip
+
+  \miUniversidad
+\end{minipage}
+}

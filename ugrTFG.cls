@@ -1,7 +1,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ugrTFG}[2023/06/15 Clase de documento para elaboración TFG en Matemáticas según normativa de la Universidad de Granada]
 
-\newcommand{\archivoportada}{portada-ugr-sencilla-color}
+% IMAGEN PARA LA PORTADA
+% Existen varias opciones para la imagen de fondo de la portada del TFG. Todas ellas tienen en logotipo de la universidad de Granada en la cabecera. Las opciones son las siguientes:
+% 1. portada-ugr y portada-ugr-color: diseño con marca de agua basada en el logo de la UGR (en escala de grises y color).
+% 2. portada-ugr-sencilla y portada-ugr-sencilla-color: portada únicamente con el logotipo de la UGR en la cabecera.
+\newcommand{\archivoportada}{portada-ugr}
 
 
 % ===================================================================
@@ -19,36 +23,15 @@
 % Para que la portada quede centrada correctamente hay que editar el
 % archivo `portada.tex` y eliminar el entorno `addmargin`
 }
-\DeclareOption{es-nodecimaldot}{
-  % No cambia el punto decimal por una coma en modo matemático.
-  \PassOptionsToPackage[es-nodecimaldot]{babel}
-}
 
 \DeclareOption{color}{
-  \renewcommand{\archivoportada}{portada-ugr-sencilla-color}
+  \renewcommand{\archivoportada}{portada-ugr-color}
+  % \PassOptionsToPackage[colorlinks = true, linkcolor = [rgb]{0.5, 0, 0}, urlcolor = [rgb]{0, 0, 0.5}, citecolor = [rgb]{0, 0.5, 0}, ]{hyperref}
 }
 \ProcessOptions\relax
 
 \LoadClass[headings=normal, headsepline=false, cleardoublepage=empty, chapterprefix=false, appendixprefix=false,	listof=totoc, index=totoc, bibliography=totoc]{scrbook}
 
-
-% -------------------------------------------------------------------
-% IMAGEN DE LA PORTADA
-% -------------------------------------------------------------------
-% Existen varias opciones para la imagen de fondo de la portada del TFG. Todas ellas tienen en logotipo de la universidad de Granada en la cabecera. Las opciones son las siguientes:
-% 1. portada-ugr y portada-ugr-color: diseño con marca de agua basada en el logo de la UGR (en escala de grises y color).
-% 2. portada-ugr-sencilla y portada-ugr-sencilla-color: portada únicamente con el logotipo de la UGR en la cabecera.
-\RequirePackage{eso-pic}
-  \newcommand\BackgroundPic{%
-    \put(0,0){%
-      \parbox[b][\paperheight]{\paperwidth}{%
-        \vfill
-        \centering
-        % Indicar la imagen de fondo en el siguiente comando
-        \includegraphics[width=\paperwidth,height=\paperheight,%
-        keepaspectratio]{\archivoportada}%
-        \vfill
-  }}}
 
 % -------------------------------------------------------------------
 % PAQUETES Y OPCIONES
@@ -163,96 +146,109 @@
 \renewcommand{\dictumwidth}{0.45\textwidth} 
 
 \recalctypearea % Necesario tras definir la tipografía a usar.
-  \RequirePackage{showframe}
 
+% -------------------------------------------------------------------
+% PORTADA Y PÁGINA DE TÍTULO
+% -------------------------------------------------------------------
 
-% TITLE
+% Definición de la imagen de fondo (ver comando \archivoportada).
+\RequirePackage{eso-pic}
+  \newcommand\BackgroundPic{%
+    \put(0,0){%
+      \parbox[b][\paperheight]{\paperwidth}{%
+        \vfill
+        \centering
+        % Indicar la imagen de fondo en el siguiente comando
+        \includegraphics[width=\paperwidth,height=\paperheight,%
+        keepaspectratio]{\archivoportada}%
+        \vfill
+  }}}
 
   \renewcommand{\maketitle}{
-\begin{titlepage}
-  \AddToShipoutPicture*{\BackgroundPic}
-  \phantomsection 
-  \pdfbookmark[1]{Título}{title}
+    \begin{titlepage}
+      \AddToShipoutPicture*{\BackgroundPic}
+      \phantomsection 
+      \pdfbookmark[1]{Título}{title}
 
-  % Para que el título esté centrado en la página.
-  % Los valores numéricos deberán elegirse de acuerdo con el diseño de página (sobre todo si se cambia la opción BCOR o DIV).
-  \begin{addmargin}[2.575cm]{0cm}
-  \begin{flushleft}
-    \Large  
-    \hfill\vfil
+      % Para que el título esté centrado en la página.
+      % Los valores numéricos deberán elegirse de acuerdo con el diseño de página (sobre todo si se cambia la opción BCOR o DIV).
+      \begin{addmargin}[2.575cm]{0cm}
+        \begin{flushleft}
+          \Large  
+          \hfill\vfil
 
-    \large{\textsf{\miFacultad}}
+          \large{\textsf{\miFacultad}}
+          \vfill
+
+          {\large\textsc\miGrado} \vfill
+
+
+          {\large\textsc{trabajo de fin de grado}}
+
+          \begin{flushleft}
+            \Huge
+            \setstretch{0.8}
+            \miTitulo
+          \end{flushleft}
+
+          \vfill\vfill\vfill\vfill
+
+          \textsf{\normalsize{Presentado por:}}\\
+          {\normalsize\textrm{\miNombre}} 
+          \bigskip
+
+          \textsf{\normalsize{Curso académico \miCurso}}
+        \end{flushleft}  
+      \end{addmargin}       
+
+    \end{titlepage}   
+    \cleardoublepage
+
+    \thispagestyle{empty}
+
+    \begin{center}
+      \large  
+
+      \vspace*{\stretch{1}}
+
+      \begingroup
+      \huge{\miTitulo} \\ \bigskip
+      \endgroup
+
+      \textrm{\miNombre}
+
+      \vspace{\stretch{5}}
+
+    \end{center}  
+
+    \newpage
+    \thispagestyle{empty}
+
+    \hfill
+
     \vfill
 
-    {\large\textsc\miGrado} \vfill
+    \miNombre \textit{\miTitulo}.
 
-
-    {\large\textsc{trabajo de fin de grado}}
-
-    \begin{flushleft}
-      \Huge
-      \setstretch{0.8}
-      \miTitulo
-    \end{flushleft}
-
-    \vfill\vfill\vfill\vfill
-
-    \textsf{\normalsize{Presentado por:}}\\
-    {\normalsize\textrm{\miNombre}} 
+    Trabajo de fin de Grado. Curso académico \miCurso.
     \bigskip
 
-    \textsf{\normalsize{Curso académico \miCurso}}
-  \end{flushleft}  
-  \end{addmargin}       
+    \begin{minipage}[t]{0.25\textwidth}
+      \flushleft
+      \textbf{Responsable de tutorización}
+    \end{minipage}
+    \begin{minipage}[t]{0.45\textwidth}
+      \flushleft
+      \miTutor
+    \end{minipage}
+    \begin{minipage}[t]{0.30\textwidth}
+      \flushright
+      \miGrado
+      \medskip
 
-\end{titlepage}   
-\cleardoublepage
+      \miFacultad
+      \medskip
 
-\thispagestyle{empty}
-
-\begin{center}
-  \large  
-
-  \vspace*{\stretch{1}}
-
-  \begingroup
-  \huge{\miTitulo} \\ \bigskip
-  \endgroup
-
-  \textrm{\miNombre}
-
-  \vspace{\stretch{5}}
-
-\end{center}  
-
-\newpage
-\thispagestyle{empty}
-
-\hfill
-
-\vfill
-
-\miNombre \textit{\miTitulo}.
-
-Trabajo de fin de Grado. Curso académico \miCurso.
-\bigskip
-
-\begin{minipage}[t]{0.25\textwidth}
-  \flushleft
-  \textbf{Responsable de tutorización}
-\end{minipage}
-\begin{minipage}[t]{0.45\textwidth}
-  \flushleft
-  \miTutor
-\end{minipage}
-\begin{minipage}[t]{0.30\textwidth}
-  \flushright
-  \miGrado
-  \medskip
-
-  \miFacultad
-  \medskip
-
-  \miUniversidad
-\end{minipage}
-}
+      \miUniversidad
+    \end{minipage}
+  }

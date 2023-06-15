@@ -20,13 +20,36 @@
   % No cambia el punto decimal por una coma en modo matemático.
   \PassOptionsToPackage[es-nodecimaldot]{babel}
 }
+
+\DeclareOption{color}{
+  \renewcommand{\archivoportada}{portada-ugr-sencilla-color}
+}
 \ProcessOptions\relax
 
 \LoadClass[headings=normal, headsepline=false, cleardoublepage=empty, chapterprefix=false, appendixprefix=false,	listof=totoc, index=totoc, bibliography=totoc]{scrbook}
 
 % -------------------------------------------------------------------
 % PAQUETES
+% ===================================================================
+
 % -------------------------------------------------------------------
+% IMAGEN DE LA PORTADA
+% -------------------------------------------------------------------
+% Existen varias opciones para la imagen de fondo de la portada del TFG. Todas ellas tienen en logotipo de la universidad de Granada en la cabecera. Las opciones son las siguientes:
+% 1. portada-ugr y portada-ugr-color: diseño con marca de agua basada en el logo de la UGR (en escala de grises y color).
+% 2. portada-ugr-sencilla y portada-ugr-sencilla-color: portada únicamente con el logotipo de la UGR en la cabecera.
+\RequirePackage{eso-pic}
+  \newcommand\BackgroundPic{%
+    \put(0,0){%
+      \parbox[b][\paperheight]{\paperwidth}{%
+        \vfill
+        \centering
+        % Indicar la imagen de fondo en el siguiente comando
+        \includegraphics[width=\paperwidth,height=\paperheight,%
+        keepaspectratio]{\archivoportada}%
+        \vfill
+  }}}
+
 \RequirePackage[utf8]{inputenc} 
 
 \RequirePackage[english, spanish, es-nodecimaldot, es-noindentfirst, es-tabla]{babel}

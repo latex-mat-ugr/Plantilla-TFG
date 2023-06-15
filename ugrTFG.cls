@@ -91,9 +91,13 @@
 % Monospace font: 	Inconsolata
 \RequirePackage[T1]{fontenc}
 \RequirePackage[sc, osf]{mathpazo} \linespread{1.05}         
-\RequirePackage[scaled=.95,type1]{cabin} % sans serif in style of Gill Sans
+\IfFileExists{cabin.sty}{
+  \RequirePackage[scaled=.95,type1]{cabin} 
+} %else
+{
   % Si cabin da ERROR usar el siguiente comando en su lugar
-  % \renewcommand{\sfdefault}{iwona} 
+  \renewcommand{\sfdefault}{iwona} 
+}
 \RequirePackage{inconsolata}
 
 \RequirePackage{setspace}

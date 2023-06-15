@@ -51,7 +51,6 @@ La estructura de la plantilla es la siguiente\footnote{Los nombres de las carpet
    \item Fichero \texttt{libro.tex}: El documento maestro del TFG que hay que compilar con \LaTeX\ para obtener el pdf. En dicho documento hay que cambiar la \emph{información del título del \textsc{tfg} y el autor así como los tutores}.
 \end{itemize}
 
-Finalmente y de forma también opcional se puede incluir in índice terminológico. Por defecto dicha opción está desabilitada. Para habilitar la inclusión de dicho índice terminológico basta con quitar los comentarios a las líneas finales de \texttt{libro.tex} y cargar el paquete \texttt{makeindex} en el preámbulo del documento (ver comentarios en \texttt{libro.tex})
 
 
 \section{Elementos del texto}
@@ -100,12 +99,22 @@ En la \autoref{tb:ejemplo-tabla} o la \autoref{fig:logo-ugr} podemos ver\ldots
 
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=0.8\textwidth]{logo-ugr}
+  \includegraphics[width=0.5\textwidth]{logo-ugr}
   \caption{Logotipo de la Universidad de Granada}
   \label{fig:logo-ugr}
 \end{figure}
 
 \section{Entornos matemáticos}
+
+La plantilla tiene definidos varios entornos matemáticos cuyo nombre es el mismo omitiendo los acentos (así, para incluir una \emph{proposición} usaríamos:
+
+\begin{verbatim}
+\begin{proposicion}
+texto de la proposición
+\end{proposicion} 
+\end{verbatim}
+
+Ver el código fuente del archivo \texttt{capitulo01.tex} para el resto de ejemplos.
 
 \begin{teorema}\label{thm:teorema}
 Esto es un ejemplo de teorema.

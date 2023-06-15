@@ -9,13 +9,12 @@
 % -------------------------------------------------------------------
 % PRINT
 \DeclareOption{print}{
-  \KOMAoptions{fontsize=10pt, paper=a4, twoside=true, BCOR=5mm, DIV=10}
+  \PassOptionsToClass{fontsize=10pt, paper=a4, twoside=true, BCOR=5mm, DIV=10}{scrbook}
 }
 
 % TABLET
 \DeclareOption{tablet}{
-  \KOMAoptions{fontsize=10pt, paper=19.7104cm:14.7828cm, twoside=false, BCOR=0cm, DIV=14}
-  % \PassOptionsToClass{\CurrentOption}{scrbook}
+  \PassOptionsToClass{fontsize=12pt, paper=19.7104cm:14.7828cm, twoside=false, BCOR=0cm, DIV=20}{scrbook}
 }
 \DeclareOption{es-nodecimaldot}{
   % No cambia el punto decimal por una coma en modo matemático.

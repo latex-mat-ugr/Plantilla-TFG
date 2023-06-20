@@ -225,7 +225,7 @@ FUNCTION {format.editors}
     { "" }
     { editor format.names
       editor num.names$ #1 >
-        { ", editors" * }
+        { ", editores" * }
         { ", editor" * }
       if$
     }
@@ -303,12 +303,12 @@ FUNCTION {either.or.check}
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
-    { "volume" volume tie.or.space.connect
+    { "volumen" volume tie.or.space.connect
       series empty$
         'skip$
-        { " of " * series emphasize * }
+        { " de " * series emphasize * }
       if$
-      "volume and number" number either.or.check
+      "volumen and n\'umero" number either.or.check
     }
   if$
 }
@@ -324,7 +324,7 @@ FUNCTION {format.number.series}
           number tie.or.space.connect
           series empty$
             { "there's a number but no series in " cite$ * warning$ }
-            { " in " * series * }
+            { " en " * series * }
           if$
         }
       if$
@@ -337,8 +337,8 @@ FUNCTION {format.edition}
 { edition empty$
     { "" }
     { output.state mid.sentence =
-        { edition "l" change.case$ " edition" * }
-        { edition "t" change.case$ " edition" * }
+        { edition "l" change.case$ " edici\'on" * }
+        { edition "t" change.case$ " edici\'on" * }
       if$
     }
   if$
@@ -370,8 +370,8 @@ FUNCTION {format.pages}
 { pages empty$
     { "" }
     { pages multi.page.check
-        { "pages" pages n.dashify tie.or.space.connect }
-        { "page" pages tie.or.space.connect }
+        { "páginas" pages n.dashify tie.or.space.connect }
+        { "página" pages tie.or.space.connect }
       if$
     }
   if$
@@ -418,8 +418,8 @@ FUNCTION {format.in.ed.booktitle}
 { booktitle empty$
     { "" }
     { editor empty$
-        { "In " booktitle emphasize * }
-        { "In " format.editors * ", " * booktitle emphasize * }
+        { "En " booktitle emphasize * }
+        { "En " format.editors * ", " * booktitle emphasize * }
       if$
     }
   if$
@@ -462,10 +462,10 @@ FUNCTION {format.article.crossref}
           warning$
           ""
         }
-        { "In {\em " journal * "\/}" * }
+        { "En {\em " journal * "\/}" * }
       if$
     }
-    { "In " key * }
+    { "En " key * }
   if$
   " \cite{" * crossref * "}" *
 }
@@ -479,7 +479,7 @@ FUNCTION {format.crossref.editor}
         'skip$
         { editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
             { " et~al." * }
-            { " and " * editor #2 "{vv~}{ll}" format.name$ * }
+            { " y " * editor #2 "{vv~}{ll}" format.name$ * }
           if$
         }
       if$
@@ -490,10 +490,10 @@ FUNCTION {format.crossref.editor}
 FUNCTION {format.book.crossref}
 { volume empty$
     { "empty volume in " cite$ * "'s crossref of " * crossref * warning$
-      "In "
+      "En "
     }
     { "Volume" volume tie.or.space.connect
-      " of " *
+      " de " *
     }
   if$
   editor empty$
@@ -526,13 +526,13 @@ FUNCTION {format.incoll.inproc.crossref}
               crossref * warning$
               ""
             }
-            { "In {\em " booktitle * "\/}" * }
+            { "En {\em " booktitle * "\/}" * }
           if$
         }
-        { "In " key * }
+        { "En " key * }
       if$
     }
-    { "In " format.crossref.editor * }
+    { "En " format.crossref.editor * }
   if$
   " \cite{" * crossref * "}" *
 }

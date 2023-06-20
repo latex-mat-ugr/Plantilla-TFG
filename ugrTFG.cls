@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ugrTFG}[2023/06/15 Clase de documento para elaboración TFG en Matemáticas según normativa de la Universidad de Granada]
+\ProvidesClass{ugrTFG}[2023/06/15 Clase de documento para TFG] %elaboraci\'on TFG en Matem\'aticas seg\'un normativa de la Universidad de Granada]
 
 % IMAGEN PARA LA PORTADA
 % Existen varias opciones para la imagen de fondo de la portada del TFG. Todas ellas tienen en logotipo de la universidad de Granada en la cabecera. Las opciones son las siguientes:

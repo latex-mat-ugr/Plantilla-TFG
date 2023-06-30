@@ -100,7 +100,7 @@ En la \autoref{tb:ejemplo-tabla} o la \autoref{fig:logo-ugr} podemos ver\ldots
   \label{fig:logo-ugr}
 \end{figure}
 
-\section{Entornos matemáticos}
+\section{Entornos matemáticos}\label{sec:entornos-matematicos}
 
 La plantilla tiene definidos varios entornos matemáticos cuyo nombre es el mismo omitiendo los acentos. Así, para incluir una \emph{proposición} usaríamos:
 
@@ -136,17 +136,33 @@ Ejemplo de definición
 Ejemplo de observación
 \end{observacion}
 
-Y esto es una referencia al \autoref{thm:teorema}. 
-
-Identidad Pitagórica~\eqref{eq:identidad-pitagorica}
+Las fórmulas matemáticas se escriben entre símbolos de dólar \$ si van en línea con el texto o bien usando el entorno%
+\footnote{
+  También es posible delimitar una ecuación mediante los comandos \texttt{$\backslash$[} y \texttt{$\backslash$]} pero éstas nunca llevarán numeración aunque añadamos una etiqueta y las referenciemos (ver \autoref{sec:referencias}).
+} 
+\texttt{equation} cuando queremos que se impriman centradas en una línea propia, como el siguiente ejemplo
 \begin{equation}\label{eq:identidad-pitagorica}
-  \cos^2 x + \sin^2 x = 1
+  \cos^2 x + \sin^2 x = 1,
 \end{equation}
-
-La fórmula de Gauss-Bonnet para una superficie compacta $S$ viene dada por:
+o bien este otro: la fórmula de Gauss-Bonnet para una superficie compacta $S$ viene dada por:
 \begin{equation}
   \int_S K = 2\pi\chi(S)
 \end{equation}
+
+Gracias al paquete \texttt{mathtools}, las ecuaciones escritas dentro del entorno \texttt{equation} llevarán numeración de forma automática si son referenciadas  en cualquier parte del documento (por ejemplo la identidad Pitagórica~\eqref{eq:identidad-pitagorica}, ver el código de los dos anteriores ejemplos y la \autoref{sec:referencias} para más información sobre referencias cruzadas en el documento).
+
+
+
+
+\section{Referencias a elementos del texto}\label{sec:referencias}
+
+Para las referencias a los elementos del texto (secciones, capítulos, teoremas,\ldots) se procede de la siguiente manera:
+\begin{itemize}
+  \item Se \emph{marca} el elemento (justo antes del mismo si se trata de un capítulo o sección o en el interior del \emph{entorno} en otro caso), mediante el comando \verb+\label{+\emph{etiqueta}\verb+}+, donde \emph{etiqueta} debe ser un identificador único.
+  \item Para crear una referencia al elemento en cualquier otra parte del texto se usa el comando \verb+\ref{+\emph{etiqueta}\verb+}+ (únicamente imprime la numeración asociada a dicho elemento, por ejemplo \ref{ch:primer-capitulo} o \ref{thm:teorema}) o bien \verb+\autoref{+\emph{etiqueta}\verb+}+ (imprime la numeración del elemento así como un texto previo indicando su tipo, por ejemplo \autoref{ch:primer-capitulo} o \autoref{thm:teorema})
+\end{itemize}
+
+
 
 
 \section{Bibliografía e índice}

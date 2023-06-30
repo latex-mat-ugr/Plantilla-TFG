@@ -136,18 +136,25 @@ Ejemplo de definición
 Ejemplo de observación
 \end{observacion}
 
+Adicionalmente está definido el entorno \texttt{teorema*} que permite incluir un teorema sin numeración:
+
+\begin{teorema*}[Fórmula de Gauß-Bonnet]
+  Sea $S$ una superficie compacta y $K$ su curvatura de Gauß. Entonces
+\begin{equation}
+  \int_S K = 2\pi\chi(S)
+\end{equation}
+donde $\chi(S)$ es la característica de Euler de $S$.
+\end{teorema*}
+
 Las fórmulas matemáticas se escriben entre símbolos de dólar \$ si van en línea con el texto o bien usando el entorno%
 \footnote{
   También es posible delimitar una ecuación mediante los comandos \texttt{$\backslash$[} y \texttt{$\backslash$]} pero éstas nunca llevarán numeración aunque añadamos una etiqueta y las referenciemos (ver \autoref{sec:referencias}).
 } 
 \texttt{equation} cuando queremos que se impriman centradas en una línea propia, como el siguiente ejemplo
 \begin{equation}\label{eq:identidad-pitagorica}
-  \cos^2 x + \sin^2 x = 1,
+  \cos^2 x + \sin^2 x = 1.
 \end{equation}
-o bien este otro: la fórmula de Gauss-Bonnet para una superficie compacta $S$ viene dada por:
-\begin{equation}
-  \int_S K = 2\pi\chi(S)
-\end{equation}
+
 
 Gracias al paquete \texttt{mathtools}, las ecuaciones escritas dentro del entorno \texttt{equation} llevarán numeración de forma automática si son referenciadas  en cualquier parte del documento (por ejemplo la identidad Pitagórica~\eqref{eq:identidad-pitagorica}, ver el código de los dos anteriores ejemplos y la \autoref{sec:referencias} para más información sobre referencias cruzadas en el documento).
 

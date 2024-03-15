@@ -61,11 +61,11 @@
   \newtheorem{lema}{Lema}[chapter]
   \newtheorem{corolario}{Corolario}[chapter]
 
-    \theoremstyle{definition}
+  \theoremstyle{definition}
   \newtheorem{definicion}{Definición}[chapter]
   \newtheorem{ejemplo}{Ejemplo}[chapter]
 
-    \theoremstyle{remark}
+  \theoremstyle{remark}
   \newtheorem{observacion}{Observación}[chapter]
 
 \RequirePackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
@@ -122,7 +122,7 @@
 \def\observacionautorefname{Observación}
 \def\ejemploautorefname{E.j.}
 
-% Pone automáticamente un parántesis para las ecuaciones
+% Pone automáticamente un paréntesis para las ecuaciones
 \def\equationautorefname~#1\null{(#1)\null}
 
 % -------------------------------------------------------------------

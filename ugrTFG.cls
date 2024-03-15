@@ -38,7 +38,7 @@
 % -------------------------------------------------------------------
 \RequirePackage[utf8]{inputenc} 
 
-\RequirePackage[english, spanish, es-nodecimaldot, es-noindentfirst, es-tabla]{babel}
+\RequirePackage[english, spanish, es-nodecimaldot, es-noindentfirst, es-tabla,es-noquoting]{babel}
   \unaccentedoperators % Desactiva los acentos en los operadores matemáticso (p.e. \lim, \max, ...). Eliminar esta opción si queremos que vayan acentuados
 
 \RequirePackage{amsmath}

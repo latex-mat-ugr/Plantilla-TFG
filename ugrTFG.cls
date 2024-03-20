@@ -113,6 +113,7 @@
 \def\subsectionautorefname{Subsección}
 \def\figureautorefname{Fig.}
 \def\tableautorefname{Tabla}
+\def\listingnameautorefname{Código}
 
 \def\teoremaautorefname{Teorema}
 \def\proposicionautorefname{Proposición}
@@ -136,6 +137,87 @@
   % Carpeta donde buscar los archivos de imagen por defecto
   \graphicspath{{img/}}
 
+
+% -------------------------------------------------------------------
+% Código
+% -------------------------------------------------------------------
+\RequirePackage{listings}
+\renewcommand{\lstlistingname}{Código}
+
+% Comandos auxiliares
+\newcommand{\ContinueLineNumber}{\lstset{firstnumber=last}}
+\newcommand{\StartLineAt}[1]{\lstset{firstnumber=#1}}
+\newcommand{\numberLineAt}[1]{\StartLineAt{#1}}
+
+% Colores
+% El siguiente estilo copia el existente en Jupyter
+\definecolor{background}{rgb}{0.97, 0.97, 0.97}     % Gris
+\definecolor{keyword}{rgb}{0.22, 0.5, 0}            % Verde
+\definecolor{identifier}{rgb}{0,0,0}                % Negro
+\definecolor{string}{rgb}{0.75, 0.13, 0.13}         % Rojo
+\definecolor{comment}{gray}{0.6}
+% \definecolor{comment}{rgb}{0.75, 0.13, 0.13}
+\definecolor{number}{rgb}{0.4,0.4,0.4}
+\definecolor{command}{rgb}{0,0,0.5}
+\definecolor{parameter}{rgb}{0.28,0.14,0.45}
+\definecolor{operator}{rgb}{0.67, 0.13, 1}
+\definecolor{output}{rgb}{0.03,0.4,0.03}
+
+\lstdefinestyle{ugr}{ %
+  float=hbp,
+  frame=single, % none, leftline, topline, bottomline, lines, single, shadowbox
+  rulecolor=\color[rgb]{0.81, 0.81, 0.81}, % Color of frame
+  %aboveskip=3mm,                      % espacio superior
+  %belowskip=3mm,                      % espacio inferior
+  numbers=left,                       % none, right (números de línea)
+  numberstyle=\scriptsize\sffamily\color{number},
+  numberfirstline=true,
+  numbersep=1em,
+  % xleftmargin=1em,
+  xleftmargin=\parindent,             % nº en margen izquierdo
+  firstnumber=last,                   % continua la numeración
+  stepnumber=1,                       % muestra los números en todas las líneas
+  % backgroundcolor=\color{background}, % color de fondo
+  breaklines=true,                    % salto de línea en espacios
+  captionpos=b,                       % Título en la parte inferior
+  basicstyle={\small\ttfamily},       % Estilo base
+  commentstyle=\color{comment},       % Estilo de los comentarios
+  keywordstyle=\color{keyword}\bfseries,  % Estilo palabras clave
+  stringstyle=\color{string}\itshape, % Estilo cadena de caracteres
+  identifierstyle=\color{identifier}, % Estilo identificadores
+  escapeinside={|}{|},           % Para usar código LaTeX
+  showstringspaces=false,             % No mostrar espacios en blanco
+  tabsize=2,                          % Tamaño del tabulador
+  % Comandos de sagemath
+  emphstyle=[1]\color{command}\bfseries,
+  literate= 
+  % Para que funcionen las tildes en el código
+  {á}{{\'a}}1
+  {é}{{\'e}}1
+  {í}{{\'i}}1
+  {ó}{{\'o}}1
+  {ú}{{\'u}}1
+  {Á}{{\'A}}1
+  {É}{{\'E}}1
+  {Í}{{\'I}}1
+  {Ó}{{\'O}}1
+  {Ú}{{\'U}}1
+  {ñ}{{\~n}}1
+  {Ñ}{{\~N}}1
+  % http://tex.stackexchange.com/questions/17739/listings-package-how-to-highlight-math-operators
+  % {+}{{{\color{operator}+}}}1
+  % {-}{{{\color{operator}-}}}1
+  % {*}{{{\color{operator}*}}}1
+  % {/}{{{\color{operator}/}}}1
+  % {=}{{{\color{operator}=}}}1
+  % {>=}{{{\color{operator}>=}}}1
+  % {<=}{{{\color{operator}<=}}}1
+  % {==}{{{\color{operator}==}}}1
+  % {!=}{{{\color{operator}!=}}}1
+  % {@}{{{\color{operator}@}}}1
+}
+
+\lstset{style=ugr}
 % -------------------------------------------------------------------
 % ESTILOS DE LA CLASE KOMA
 % -------------------------------------------------------------------

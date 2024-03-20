@@ -158,6 +158,29 @@ Las fórmulas matemáticas se escriben entre símbolos de dólar \$ si van en l�
 
 Gracias al paquete \texttt{mathtools}, las ecuaciones escritas dentro del entorno \texttt{equation} llevarán numeración de forma automática si son referenciadas  en cualquier parte del documento (por ejemplo la identidad Pitagórica~\eqref{eq:identidad-pitagorica}, ver el código de los dos anteriores ejemplos y la \autoref{sec:referencias} para más información sobre referencias cruzadas en el documento).
 
+\section{Listados de código}
+
+Podemos incluir un archivo externo de código mediante el comando \texttt{lstinputlisting} especificando su nombre completo (incluyendo la extensión) y usando la opción \texttt{inputpath} para indicar la ruta hacia el fichero (siempre referida a la carpeta principal de la plantilla) así como la opción \texttt{language} para indicar el lenguaje de programación en que está escrito (esto permitirá a \LaTeX\ colorear adecuadamente el código). Además, si lo consideramos necesario, podemos indicar las líneas que queremos mostrar (ver el código fuente del \autoref{code:prime}). Consultar todas las opciones posibles en la \href{https://osl.ugr.es/CTAN/macros/latex/contrib/listings/listings.pdf}{documentación del paquete \texttt{listings}}.
+
+\lstinputlisting[inputpath=code, language=R, linerange={11-17}, firstnumber={11}, caption={Extracto código (líneas de 11 a 17) del fichero \texttt{primeR.r}}, label={code:prime}]{primeR.r}
+
+Alternativamente, podemos incluir el código en un entorno \texttt{lstlisting} como el \autoref{code:perceptron}
+
+\begin{lstlisting}[caption={Implementación de un perceptrón}, label={code:perceptron}, language={python}]
+def dot(v, w):
+    """Producto escalar de v y w, |$\color{comment}v_0 \cdot   w_0 + \cdots + v_n \cdot w_n$|"""
+    return sum(v_i * w_i for v_i, w_i in zip(v, w))
+
+def funcion_activacion(x):
+    """1 si la entrada es mayor o igual que 1, 0 en otro caso."""
+    return 1 if x >= 0 else 0
+
+def perceptron(entrada, pesos):
+    """1 si el perceptron se activa, 0 en otro caso"""
+    return funcion_activacion(dot(entrada, pesos))
+\end{lstlisting}
+
+La opción \texttt{float} al incluir un listado de código permitará a dicho bloque ``flotar'' como si fuese un entorno \texttt{figure} y de esta manera evitaremos que se corte al final de una página.
 
 
 

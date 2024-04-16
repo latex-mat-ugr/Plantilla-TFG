@@ -21,6 +21,6 @@ La plantilla hace uso de la clase `scrbook` del paquete `KOMA-Script` que normal
 - Tamaño de impresión: a4.
 - Tipografía: [URW Palladio](http://www.tug.dk/FontCatalogue/urwpalladio/) (serif), [Cabin](http://www.tug.dk/FontCatalogue/cabin/) (sans-serif) e [Inconsolata](http://www.tug.dk/FontCatalogue/inconsolata/) (monospace). 
 
-El fichero principal de la plantilla es `libro.tex`. Al inicio del mismo (entre las líneas 13-32) es necesario modificar los datos del TFG: título, autor, grado, facultad y tutores mediante los comandos `\miTitulo`, `\miNombre`, `\miGrado`, `\miFacultad`, `\miUniversidad`, `\miTutor`.
+El fichero principal de la plantilla es `tfg.tex`. Al inicio del mismo (entre las líneas 13-32) es necesario modificar los datos del TFG: título, autor, grado, facultad y tutores mediante los comandos `\miTitulo`, `\miNombre`, `\miGrado`, `\miFacultad`, `\miUniversidad`, `\miTutor`.
 
-En el fichero `libro.pdf` se puede encontrar más información sobre la estructura de la plantilla y ejemplos de su uso.
+En el fichero `tfg.pdf` se puede encontrar más información sobre la estructura de la plantilla y ejemplos de su uso.

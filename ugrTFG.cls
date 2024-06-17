@@ -57,16 +57,16 @@
 
   \newtheorem*{teorema*}{Teorema}
   \newtheorem{teorema}{Teorema}[chapter]
-  \newtheorem{proposicion}{Proposición}[chapter]
-  \newtheorem{lema}{Lema}[chapter]
-  \newtheorem{corolario}{Corolario}[chapter]
+  \newtheorem{proposicion}[teorema]{Proposición}
+  \newtheorem{lema}[teorema]{Lema}
+  \newtheorem{corolario}[teorema]{Corolario}
 
   \theoremstyle{definition}
-  \newtheorem{definicion}{Definición}[chapter]
-  \newtheorem{ejemplo}{Ejemplo}[chapter]
+  \newtheorem{definicion}[teorema]{Definición}
+  \newtheorem{ejemplo}[teorema]{Ejemplo}
 
   \theoremstyle{remark}
-  \newtheorem{observacion}{Observación}[chapter]
+  \newtheorem{observacion}[teorema]{Observación}
 
 \RequirePackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 

@@ -52,21 +52,28 @@
 %                                       % tipo manuscrito en modo 
 %                                       % matemático sin sobreescribir 
 %                                       % el comando \mathcal
+\RequirePackage{aliascnt}
+
+\newcommand{\addtheorem}[2]{
+  \newaliascnt{#1}{teorema}
+  \newtheorem{#1}[#1]{#2}
+  \aliascntresetthe{#1}
+}
 
 % Teoremas y entornos asociados
 
   \newtheorem*{teorema*}{Teorema}
   \newtheorem{teorema}{Teorema}[chapter]
-  \newtheorem{proposicion}[teorema]{Proposición}
-  \newtheorem{lema}[teorema]{Lema}
-  \newtheorem{corolario}[teorema]{Corolario}
+  \addtheorem{proposicion}{Proposición}
+  \addtheorem{lema}{Lema}
+  \addtheorem{corolario}{Corolario}
 
   \theoremstyle{definition}
-  \newtheorem{definicion}[teorema]{Definición}
-  \newtheorem{ejemplo}[teorema]{Ejemplo}
+  \addtheorem{definicion}{Definición}
+  \addtheorem{ejemplo}{Ejemplo}
 
   \theoremstyle{remark}
-  \newtheorem{observacion}[teorema]{Observación}
+  \addtheorem{observacion}{Observación}
 
 % \RequirePackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 

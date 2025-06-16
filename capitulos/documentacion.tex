@@ -116,23 +116,23 @@ Ver el código fuente del archivo \texttt{documentacion.tex} en la carpeta \text
 Esto es un ejemplo de teorema.
 \end{teorema}
 
-\begin{proposicion}
+\begin{proposicion}\label{prop:proposicion}
 Ejemplo de proposición
 \end{proposicion}
 
-\begin{lema}
+\begin{lema}\label{lem:lema}
 Ejemplo de lema
 \end{lema}
 
-\begin{corolario}
+\begin{corolario}\label{cor:corolario}
 Ejemplo de corolario
 \end{corolario}
 
-\begin{definicion}
+\begin{definicion}\label{def:definicion}
 Ejemplo de definición
 \end{definicion}
 
-\begin{observacion}
+\begin{observacion}\label{obs:observacion}
 Ejemplo de observación
 \end{observacion}
 
@@ -189,7 +189,7 @@ La opción \texttt{float} al incluir un listado de código permitará a dicho bl
 Para las referencias a los elementos del texto (secciones, capítulos, teoremas,\ldots) se procede de la siguiente manera:
 \begin{itemize}
   \item Se \emph{marca} el elemento (justo después del mismo si se trata de un capítulo o sección o en el interior del \emph{entorno} en otro caso), mediante el comando \verb+\label{+\emph{etiqueta}\verb+}+, donde \emph{etiqueta} debe ser un identificador único.
-  \item Para crear una referencia al elemento en cualquier otra parte del texto se usa el comando \verb+\ref{+\emph{etiqueta}\verb+}+ (únicamente imprime la numeración asociada a dicho elemento, por ejemplo \ref{ch:primer-capitulo} o \ref{thm:teorema}) o bien \verb+\autoref{+\emph{etiqueta}\verb+}+ (imprime la numeración del elemento así como un texto previo indicando su tipo, por ejemplo \autoref{ch:primer-capitulo} o \autoref{thm:teorema})
+  \item Para crear una referencia al elemento en cualquier otra parte del texto se usa el comando \verb+\ref{+\emph{etiqueta}\verb+}+ (únicamente imprime la numeración asociada a dicho elemento, por ejemplo \ref{ch:primer-capitulo} o \ref{thm:teorema}) o bien \verb+\autoref{+\emph{etiqueta}\verb+}+ (imprime la numeración del elemento así como un texto previo indicando su tipo, por ejemplo \autoref{ch:primer-capitulo} o \autoref{thm:teorema}, \autoref{prop:proposicion}, \autoref{lem:lema}, \autoref{cor:corolario}, \autoref{def:definicion} u \autoref{obs:observacion}).
 \end{itemize}
 
 

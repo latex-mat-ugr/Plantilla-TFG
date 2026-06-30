@@ -7,7 +7,6 @@
 % 2. portada-ugr-sencilla y portada-ugr-sencilla-color: portada únicamente con el logotipo de la UGR en la cabecera.
 \newcommand{\archivoportada}{portada-ugr}
 
-
 % ===================================================================
 % OPCIONES DE LA CLASE
 % ===================================================================
@@ -20,8 +19,8 @@
 % TABLET
 \DeclareOption{tablet}{
   \PassOptionsToClass{fontsize=12pt, paper=19.7104cm:14.7828cm, twoside=false, BCOR=0cm, DIV=20}{scrbook}
-% Para que la portada quede centrada correctamente hay que editar el
-% archivo `portada.tex` y eliminar el entorno `addmargin`
+  % Para que la portada quede centrada correctamente hay que editar el
+  % archivo `portada.tex` y eliminar el entorno `addmargin`
 }
 
 \DeclareOption{color}{
@@ -30,27 +29,26 @@
 }
 \ProcessOptions\relax
 
-\LoadClass[headings=normal, headsepline=false, cleardoublepage=empty, chapterprefix=false, appendixprefix=false,	listof=totoc, index=totoc, bibliography=totoc]{scrbook}
-
+\LoadClass[headings=normal, headsepline=false, cleardoublepage=empty, chapterprefix=false, appendixprefix=false,  listof=totoc, index=totoc, bibliography=totoc]{scrbook}
 
 % -------------------------------------------------------------------
 % PAQUETES Y OPCIONES
 % -------------------------------------------------------------------
-\RequirePackage[utf8]{inputenc} 
+\RequirePackage[utf8]{inputenc}
 
 \RequirePackage[english, spanish, es-nodecimaldot, es-noindentfirst, es-tabla,es-noquoting]{babel}
-  \unaccentedoperators % Desactiva los acentos en los operadores matemáticso (p.e. \lim, \max, ...). Eliminar esta opción si queremos que vayan acentuados
+\unaccentedoperators % Desactiva los acentos en los operadores matemáticso (p.e. \lim, \max, ...). Eliminar esta opción si queremos que vayan acentuados
 
 \RequirePackage{amsmath}
-\RequirePackage{amsthm} 
-\RequirePackage{amssymb} 
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
 \RequirePackage{mathtools}
 %   % Sólo se numeran las ecuaciones que se usan
-  \mathtoolsset{showonlyrefs=true}      
-\RequirePackage[mathscr]{eucal} 		  % Proporciona el comando 
+\mathtoolsset{showonlyrefs=true}
+\RequirePackage[mathscr]{eucal}       % Proporciona el comando
 %                                       % \mathscr para fuentes de
-%                                       % tipo manuscrito en modo 
-%                                       % matemático sin sobreescribir 
+%                                       % tipo manuscrito en modo
+%                                       % matemático sin sobreescribir
 %                                       % el comando \mathcal
 \RequirePackage{aliascnt}
 
@@ -62,33 +60,33 @@
 
 % Teoremas y entornos asociados
 
-  \newtheorem*{teorema*}{Teorema}
-  \newtheorem{teorema}{Teorema}[chapter]
-  \addtheorem{proposicion}{Proposición}
-  \addtheorem{lema}{Lema}
-  \addtheorem{corolario}{Corolario}
+\newtheorem*{teorema*}{Teorema}
+\newtheorem{teorema}{Teorema}[chapter]
+\addtheorem{proposicion}{Proposición}
+\addtheorem{lema}{Lema}
+\addtheorem{corolario}{Corolario}
 
-  \theoremstyle{definition}
-  \addtheorem{definicion}{Definición}
-  \addtheorem{ejemplo}{Ejemplo}
+\theoremstyle{definition}
+\addtheorem{definicion}{Definición}
+\addtheorem{ejemplo}{Ejemplo}
 
-  \theoremstyle{remark}
-  \addtheorem{observacion}{Observación}
+\theoremstyle{remark}
+\addtheorem{observacion}{Observación}
 
 % \RequirePackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 
 % Las tipografías elegidas para el documento, siguiendo la guía de estilo de la UGR, son las siguientes
-% Normal font: 			URW Palladio typeface. 
-% Sans-serif font: 	Gill Sans (paquete cabin)
-% Monospace font: 	Inconsolata
+% Normal font:       URW Palladio typeface.
+% Sans-serif font:   Gill Sans (paquete cabin)
+% Monospace font:   Inconsolata
 \RequirePackage[T1]{fontenc}
-\RequirePackage[sc, osf]{mathpazo} \linespread{1.05}         
+\RequirePackage[sc, osf]{mathpazo} \linespread{1.05}
 \IfFileExists{cabin.sty}{
-  \RequirePackage[scaled=.95,type1]{cabin} 
+  \RequirePackage[scaled=.95,type1]{cabin}
 } %else
 {
   % Si cabin da ERROR usar el siguiente comando en su lugar
-  \renewcommand{\sfdefault}{iwona} 
+  \renewcommand{\sfdefault}{iwona}
 }
 \RequirePackage{inconsolata}
 
@@ -109,8 +107,8 @@
   urlcolor = [rgb]{0, 0, 0.5},  % Color de los hipervínculos
   citecolor = [rgb]{0, 0.5, 0}, % Color de las referencias bibliográficas
   pdfsubject={Trabajo de fin de Grado},%
-	pdfkeywords={},%
-	pdfcreator={pdfLaTeX},%
+  pdfkeywords={},%
+  pdfcreator={pdfLaTeX},%
 }
 
 % Etiquetas en español para el comando \autoref
@@ -139,11 +137,10 @@
 \RequirePackage{booktabs}
 % \renewcommand{\arraystretch}{1.5} % Aumenta el espacio vertical entre las filas de un entorno tabular
 
-\RequirePackage{xcolor} 
+\RequirePackage{xcolor}
 \RequirePackage{graphicx}
-  % Carpeta donde buscar los archivos de imagen por defecto
-  \graphicspath{{img/}}
-
+% Carpeta donde buscar los archivos de imagen por defecto
+\graphicspath{{img/}}
 
 % -------------------------------------------------------------------
 % Código
@@ -197,7 +194,7 @@
   tabsize=2,                          % Tamaño del tabulador
   % Comandos de sagemath
   emphstyle=[1]\color{command}\bfseries,
-  literate= 
+  literate=
   % Para que funcionen las tildes en el código
   {á}{{\'a}}1
   {é}{{\'e}}1
@@ -232,7 +229,7 @@
 \setkomafont{disposition}{\sffamily\bfseries}
 
 % Cambia el ancho de la cita. Al inicio de un capítulo podemos usar el comando \dictum[autor]{cita} para añadir una cita famosa de un autor.
-\renewcommand{\dictumwidth}{0.45\textwidth} 
+\renewcommand{\dictumwidth}{0.45\textwidth}
 
 \recalctypearea % Necesario tras definir la tipografía a usar.
 
@@ -242,102 +239,101 @@
 
 % Definición de la imagen de fondo (ver comando \archivoportada).
 \RequirePackage{eso-pic}
-  \newcommand\BackgroundPic{%
-    \put(0,0){%
-      \parbox[b][\paperheight]{\paperwidth}{%
-        \vfill
-        \centering
-        % Indicar la imagen de fondo en el siguiente comando
-        \includegraphics[width=\paperwidth,height=\paperheight,%
-        keepaspectratio]{\archivoportada}%
-        \vfill
-  }}}
+\newcommand\BackgroundPic{%
+  \put(0,0){%
+    \parbox[b][\paperheight]{\paperwidth}{%
+      \vfill
+      \centering
+      % Indicar la imagen de fondo en el siguiente comando
+      \includegraphics[width=\paperwidth,height=\paperheight,%
+      keepaspectratio]{\archivoportada}%
+      \vfill
+}}}
 
-  \renewcommand{\maketitle}{
-    \begin{titlepage}
-      \AddToShipoutPicture*{\BackgroundPic}
-      \phantomsection 
-      \pdfbookmark[1]{Título}{title}
+\renewcommand{\maketitle}{
+  \begin{titlepage}
+    \AddToShipoutPicture*{\BackgroundPic}
+    \phantomsection
+    \pdfbookmark[1]{Título}{title}
 
-      % Para que el título esté centrado en la página.
-      % Los valores numéricos deberán elegirse de acuerdo con el diseño de página (sobre todo si se cambia la opción BCOR o DIV).
-      \begin{addmargin}[2.575cm]{0cm}
+    % Para que el título esté centrado en la página.
+    % Los valores numéricos deberán elegirse de acuerdo con el diseño de página (sobre todo si se cambia la opción BCOR o DIV).
+    \begin{addmargin}[2.575cm]{0cm}
+      \begin{flushleft}
+        \Large
+        \hfill\vfil
+
+        \large{\textsf{\miFacultad}}
+        \vfill
+
+        {\large\textsc\miGrado} \vfill
+
+        {\large\textsc{trabajo de fin de grado}}
+
         \begin{flushleft}
-          \Large  
-          \hfill\vfil
+          \Huge
+          \setstretch{0.8}
+          \miTitulo
+        \end{flushleft}
 
-          \large{\textsf{\miFacultad}}
-          \vfill
+        \vfill\vfill\vfill\vfill
 
-          {\large\textsc\miGrado} \vfill
+        \textsf{\normalsize{Presentado por:}}\\
+        {\normalsize\textrm{\miNombre}}
+        \bigskip
 
+        \textsf{\normalsize{Curso académico \miCurso}}
+      \end{flushleft}
+    \end{addmargin}
 
-          {\large\textsc{trabajo de fin de grado}}
+  \end{titlepage}
+  \cleardoublepage
 
-          \begin{flushleft}
-            \Huge
-            \setstretch{0.8}
-            \miTitulo
-          \end{flushleft}
+  \thispagestyle{empty}
 
-          \vfill\vfill\vfill\vfill
+  \begin{center}
+    \large
 
-          \textsf{\normalsize{Presentado por:}}\\
-          {\normalsize\textrm{\miNombre}} 
-          \bigskip
+    \vspace*{\stretch{1}}
 
-          \textsf{\normalsize{Curso académico \miCurso}}
-        \end{flushleft}  
-      \end{addmargin}       
+    \begingroup
+    \huge{\miTitulo} \\ \bigskip
+    \endgroup
 
-    \end{titlepage}   
-    \cleardoublepage
+    \textrm{\miNombre}
 
-    \thispagestyle{empty}
+    \vspace{\stretch{5}}
 
-    \begin{center}
-      \large  
+  \end{center}
 
-      \vspace*{\stretch{1}}
+  \newpage
+  \thispagestyle{empty}
 
-      \begingroup
-      \huge{\miTitulo} \\ \bigskip
-      \endgroup
+  \hfill
 
-      \textrm{\miNombre}
+  \vfill
 
-      \vspace{\stretch{5}}
+  \miNombre \textit{\miTitulo}.
 
-    \end{center}  
+  Trabajo de fin de Grado. Curso académico \miCurso.
+  \bigskip
 
-    \newpage
-    \thispagestyle{empty}
+  \begin{minipage}[t]{0.25\textwidth}
+    \flushleft
+    \textbf{Responsable de tutorización}
+  \end{minipage}
+  \begin{minipage}[t]{0.45\textwidth}
+    \flushleft
+    \miTutor
+  \end{minipage}
+  \begin{minipage}[t]{0.30\textwidth}
+    \flushright
+    \miGrado
+    \medskip
 
-    \hfill
+    \miFacultad
+    \medskip
 
-    \vfill
-
-    \miNombre \textit{\miTitulo}.
-
-    Trabajo de fin de Grado. Curso académico \miCurso.
-    \bigskip
-
-    \begin{minipage}[t]{0.25\textwidth}
-      \flushleft
-      \textbf{Responsable de tutorización}
-    \end{minipage}
-    \begin{minipage}[t]{0.45\textwidth}
-      \flushleft
-      \miTutor
-    \end{minipage}
-    \begin{minipage}[t]{0.30\textwidth}
-      \flushright
-      \miGrado
-      \medskip
-
-      \miFacultad
-      \medskip
-
-      \miUniversidad
-    \end{minipage}
-  }
+    \miUniversidad
+  \end{minipage}
+}

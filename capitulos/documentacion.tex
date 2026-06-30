@@ -21,9 +21,9 @@ Este documento es una plantilla para la elaboración de un trabajo fin de Grado 
   \item Se recomienda que la extensión de la memoria sea de unas 50 páginas, sin incluir posibles apéndices.
 \end{itemize}
 
-Para generar el pdf a partir de la plantilla basta compilar el fichero \texttt{tfg.tex}. Es conveniente leer los comentarios contenidos en dicho fichero pues ayudarán a entender mejor como funciona la plantilla. 
+Para generar el pdf a partir de la plantilla basta compilar el fichero \texttt{tfg.tex}. Es conveniente leer los comentarios contenidos en dicho fichero pues ayudarán a entender mejor como funciona la plantilla.
 
-La estructura de la plantilla es la siguiente\footnote{Los nombres de las carpetas no se han acentuado para evitar problemas en sistemas con Windows}: 
+La estructura de la plantilla es la siguiente\footnote{Los nombres de las carpetas no se han acentuado para evitar problemas en sistemas con Windows}:
 \begin{itemize}
   \item Carpeta \textbf{preliminares}: contiene los siguientes archivos
     \begin{description}
@@ -31,23 +31,21 @@ La estructura de la plantilla es la siguiente\footnote{Los nombres de las carpet
       \item[\texttt{agradecimientos.tex}] Para los agradecimientos del trabajo (opcional)
       \item[\texttt{introduccion.tex}] Para la introducción (obligatorio)
       \item[\texttt{summary.tex}] Para el resumen en inglés (obligatorio)
-      \item[\texttt{tablacontenidos.tex}] Genera de forma automática la tabla de contenidos, el índice de figuras y el índice de tablas. Si bien la tabla de contenidos es conveniente incluirla, el índice de figuras y tablas es opcional. Por defecto está desactivado. Para mostrar dichos índices hay que editar este fichero y quitar el comentario a \verb+\listoffigures+ o \verb+\listoftables+ según queramos uno de los índices o los dos. En este archivo también es posible habilitar la inclusión de un índice de listados de código (si estos han sido incluidos con el paquete \texttt{listings})
-  \end{description}
-  El resto de archivos de dicha carpeta no es necesario editarlos pues su contenido se generará automáticamente a partir de los metadatos que agreguemos en \texttt{tfg.tex}
+        \item[\texttt{tablacontenidos.tex}] Genera de forma automática la tabla de contenidos, el índice de figuras y el índice de tablas. Si bien la tabla de contenidos es conveniente incluirla, el índice de figuras y tablas es opcional. Por defecto está desactivado. Para mostrar dichos índices hay que editar este fichero y quitar el comentario a \verb+\listoffigures+ o \verb+\listoftables+ según queramos uno de los índices o los dos. En este archivo también es posible habilitar la inclusión de un índice de listados de código (si estos han sido incluidos con el paquete \texttt{listings})
+    \end{description}
+    El resto de archivos de dicha carpeta no es necesario editarlos pues su contenido se generará automáticamente a partir de los metadatos que agreguemos en \texttt{tfg.tex}
 
   \item Carpeta \textbf{capitulos}: contiene los archivos de los capítulos del TFG. Añadir tantos archivos como sean necesarios. Este capítulo es \texttt{capitulo01.tex}.
 
   \item Carpeta \textbf{apendices}: Para los apéndices (opcional)
   \item Carpeta \textbf{img}: Para incluir los ficheros de imagen que se usarán en el documento.
-    
-  \item Fichero \texttt{library.bib}: Para incluir las referencias bibliográficas en formato \texttt{bibtex}. Es útil la herramienta \href{https://www.doi2bib.org/}{doi2bib} para generar de forma automática el código bibtex de una referencia a partir de su \textsc{doi}  así como la base de datos bibliográfica \href{https://mathscinet.ams.org}{MathSciNet}. Para que una referencia aparezca en el pdf no basta con incluirla en el fichero \texttt{library.bib}, es necesario además \emph{citarla} en el documento usando el comando \verb+\cite+. Si queremos mostrar todos las referencias incluidas en el fichero \texttt{library.bib} podemos usar \verb+\cite{*}+ aunque esta opción no es la más adecuada. Se aconseja que los elementos de la bibliografía estén citados al menos una vez en el documento (y de esa forma aparecerán de forma automática en la lista de referencias).
 
-  \item Fichero \texttt{glosario.tex}: Para incluir un glosario en el trabajo (opcional). Si no queremos incluir un glosario deberemos borrar el comando \verb+\input{glosario.tex}+ del fichero \texttt{tfg.tex} y posteriormente borrar el fichero \texttt{glosario.tex}
+    \item Fichero \texttt{library.bib}: Para incluir las referencias bibliográficas en formato \texttt{bibtex}. Es útil la herramienta \href{https://www.doi2bib.org/}{doi2bib} para generar de forma automática el código bibtex de una referencia a partir de su \textsc{doi}  así como la base de datos bibliográfica \href{https://mathscinet.ams.org}{MathSciNet}. Para que una referencia aparezca en el pdf no basta con incluirla en el fichero \texttt{library.bib}, es necesario además \emph{citarla} en el documento usando el comando \verb+\cite+. Si queremos mostrar todos las referencias incluidas en el fichero \texttt{library.bib} podemos usar \verb+\cite{*}+ aunque esta opción no es la más adecuada. Se aconseja que los elementos de la bibliografía estén citados al menos una vez en el documento (y de esa forma aparecerán de forma automática en la lista de referencias).
 
-   \item Fichero \texttt{tfg.tex}: El documento maestro del TFG que hay que compilar con \LaTeX\ para obtener el pdf. En dicho documento hay que cambiar la \emph{información del título del \textsc{tfg} y el autor así como los tutores}.
+    \item Fichero \texttt{glosario.tex}: Para incluir un glosario en el trabajo (opcional). Si no queremos incluir un glosario deberemos borrar el comando \verb+\input{glosario.tex}+ del fichero \texttt{tfg.tex} y posteriormente borrar el fichero \texttt{glosario.tex}
+
+  \item Fichero \texttt{tfg.tex}: El documento maestro del TFG que hay que compilar con \LaTeX\ para obtener el pdf. En dicho documento hay que cambiar la \emph{información del título del \textsc{tfg} y el autor así como los tutores}.
 \end{itemize}
-
-
 
 \section{Elementos del texto}
 
@@ -68,14 +66,14 @@ Listas no enumeradas
   \item item 1
   \item item 2
   \item item 3
-  \end{itemize}
+\end{itemize}
 
 Listas descriptivas
 \begin{description}
   \item[termino1] descripción 1
   \item[termino2] descripción 2
 \end{description}
-  
+
 \subsection{Tablas y figuras}
 
 En la \autoref{tb:ejemplo-tabla} o la \autoref{fig:logo-ugr} podemos ver\ldots
@@ -85,8 +83,8 @@ En la \autoref{tb:ejemplo-tabla} o la \autoref{fig:logo-ugr} podemos ver\ldots
   \begin{tabular}{ccc} \toprule
     \multicolumn{2}{c}{Agrupados} \\ \cmidrule(r){1-2}
     cabecera & cabecera & cabecera          \\ \midrule
-    elemento & elemento & elemento          \\ 
-    elemento & elemento & elemento          \\ 
+    elemento & elemento & elemento          \\
+    elemento & elemento & elemento          \\
     elemento & elemento & elemento          \\ \bottomrule
   \end{tabular}
   \caption{Ejemplo de tabla}
@@ -107,54 +105,53 @@ La plantilla tiene definidos varios entornos matemáticos cuyo nombre es el mism
 \begin{verbatim}
 \begin{proposicion}
 texto de la proposición
-\end{proposicion} 
+\end{proposicion}
 \end{verbatim}
 
 Ver el código fuente del archivo \texttt{documentacion.tex} en la carpeta \texttt{capitulos} para el resto de ejemplos.
 
 \begin{teorema}\label{thm:teorema}
-Esto es un ejemplo de teorema.
+  Esto es un ejemplo de teorema.
 \end{teorema}
 
 \begin{proposicion}\label{prop:proposicion}
-Ejemplo de proposición
+  Ejemplo de proposición
 \end{proposicion}
 
 \begin{lema}\label{lem:lema}
-Ejemplo de lema
+  Ejemplo de lema
 \end{lema}
 
 \begin{corolario}\label{cor:corolario}
-Ejemplo de corolario
+  Ejemplo de corolario
 \end{corolario}
 
 \begin{definicion}\label{def:definicion}
-Ejemplo de definición
+  Ejemplo de definición
 \end{definicion}
 
 \begin{observacion}\label{obs:observacion}
-Ejemplo de observación
+  Ejemplo de observación
 \end{observacion}
 
 Adicionalmente está definido el entorno \texttt{teorema*} que permite incluir un teorema sin numeración:
 
 \begin{teorema*}[Fórmula de Gauß-Bonnet]
   Sea $S$ una superficie compacta y $K$ su curvatura de Gauß. Entonces
-\begin{equation}
-  \int_S K = 2\pi\chi(S)
-\end{equation}
-donde $\chi(S)$ es la característica de Euler de $S$.
+  \begin{equation}
+    \int_S K = 2\pi\chi(S)
+  \end{equation}
+  donde $\chi(S)$ es la característica de Euler de $S$.
 \end{teorema*}
 
 Las fórmulas matemáticas se escriben entre símbolos de dólar \$ si van en línea con el texto o bien usando el entorno%
 \footnote{
   También es posible delimitar una ecuación mediante los comandos \texttt{$\backslash$[} y \texttt{$\backslash$]} pero éstas nunca llevarán numeración aunque añadamos una etiqueta y las referenciemos (ver \autoref{sec:referencias}).
-} 
+}
 \texttt{equation} cuando queremos que se impriman centradas en una línea propia, como el siguiente ejemplo
 \begin{equation}\label{eq:identidad-pitagorica}
   \cos^2 x + \sin^2 x = 1.
 \end{equation}
-
 
 Gracias al paquete \texttt{mathtools}, las ecuaciones escritas dentro del entorno \texttt{equation} llevarán numeración de forma automática si son referenciadas  en cualquier parte del documento (por ejemplo la identidad Pitagórica~\eqref{eq:identidad-pitagorica}, ver el código de los dos anteriores ejemplos y la \autoref{sec:referencias} para más información sobre referencias cruzadas en el documento).
 
@@ -182,24 +179,18 @@ def perceptron(entrada, pesos):
 
 La opción \texttt{float} al incluir un listado de código permitará a dicho bloque ``flotar'' como si fuese un entorno \texttt{figure} y de esta manera evitaremos que se corte al final de una página.
 
-
-
 \section{Referencias a elementos del texto}\label{sec:referencias}
 
 Para las referencias a los elementos del texto (secciones, capítulos, teoremas,\ldots) se procede de la siguiente manera:
 \begin{itemize}
-  \item Se \emph{marca} el elemento (justo después del mismo si se trata de un capítulo o sección o en el interior del \emph{entorno} en otro caso), mediante el comando \verb+\label{+\emph{etiqueta}\verb+}+, donde \emph{etiqueta} debe ser un identificador único.
-  \item Para crear una referencia al elemento en cualquier otra parte del texto se usa el comando \verb+\ref{+\emph{etiqueta}\verb+}+ (únicamente imprime la numeración asociada a dicho elemento, por ejemplo \ref{ch:primer-capitulo} o \ref{thm:teorema}) o bien \verb+\autoref{+\emph{etiqueta}\verb+}+ (imprime la numeración del elemento así como un texto previo indicando su tipo, por ejemplo \autoref{ch:primer-capitulo} o \autoref{thm:teorema}, \autoref{prop:proposicion}, \autoref{lem:lema}, \autoref{cor:corolario}, \autoref{def:definicion} u \autoref{obs:observacion}).
+    \item Se \emph{marca} el elemento (justo después del mismo si se trata de un capítulo o sección o en el interior del \emph{entorno} en otro caso), mediante el comando \verb+\label{+\emph{etiqueta}\verb+}+, donde \emph{etiqueta} debe ser un identificador único.
+    \item Para crear una referencia al elemento en cualquier otra parte del texto se usa el comando \verb+\ref{+\emph{etiqueta}\verb+}+ (únicamente imprime la numeración asociada a dicho elemento, por ejemplo \ref{ch:primer-capitulo} o \ref{thm:teorema}) o bien \verb+\autoref{+\emph{etiqueta}\verb+}+ (imprime la numeración del elemento así como un texto previo indicando su tipo, por ejemplo \autoref{ch:primer-capitulo} o \autoref{thm:teorema}, \autoref{prop:proposicion}, \autoref{lem:lema}, \autoref{cor:corolario}, \autoref{def:definicion} u \autoref{obs:observacion}).
 \end{itemize}
-
-
-
 
 \section{Bibliografía e índice}
 
-Esto es un ejemplo de texto en un capítulo. Incluye varias citas tanto a libros~\cite{Aigner2018}, artículos de investigación~\cite{Euler1985}, recursos online~\cite{EulerWiki} (páginas web), tesis~\cite{CitekeyPhdthesis}, trabajo fin de máster~\cite{CitekeyMastersthesis}, trabajo fin de grado~\cite{CiteKeyBachelorsthesis} así como artículos sin publicar (preprints) \cite{castroinfantes2022conjugate} (en estos últimos usar el campo \texttt{note} para añadir la información relevante). 
+Esto es un ejemplo de texto en un capítulo. Incluye varias citas tanto a libros~\cite{Aigner2018}, artículos de investigación~\cite{Euler1985}, recursos online~\cite{EulerWiki} (páginas web), tesis~\cite{CitekeyPhdthesis}, trabajo fin de máster~\cite{CitekeyMastersthesis}, trabajo fin de grado~\cite{CiteKeyBachelorsthesis} así como artículos sin publicar (preprints) \cite{castroinfantes2022conjugate} (en estos últimos usar el campo \texttt{note} para añadir la información relevante).
 
 Ver el fichero \texttt{library.bib} para las distintas plantillas. Cada nueva referencia debe añadirse en dicho fichero siguiendo el estilo del código \texttt{bibtex} según el tipo de referencia (página web, tesis, trabajo fin de grado o máster, artículo de investigación, libro,\ldots). Alternativamente se puede usar la web \href{https://zbib.org}{https://zbib.org} para generar automáticamente el código \texttt{bibtex}.
-
 
 \endinput

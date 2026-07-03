@@ -1,6 +1,39 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ugrTFG}[2023/06/15 Clase de documento para TFG] %elaboraci\'on TFG en Matem\'aticas seg\'un normativa de la Universidad de Granada]
 
+\DeclareKeys[ugrTFG]{
+  % Layout options
+  tablet.if = @tfco@tablet,
+  tablet.initial:n = false,
+  cover.store = \ugrTFG@cover,
+  cover.initial:n = portada-ugr,
+  % META DATA
+  % Document information
+  % Use the \title and \author commands for the title and author.
+  degree.store = \ugrTFG@degree,
+  faculty.store = \ugrTFG@faculty,
+  university.store = \ugrTFG@university,
+  university.initial:n = Universidad de Granada,
+  tutor.store = \ugrTFG@tutor,
+  academicYear.store = \ugrTFG@academicYear,
+  % Author information
+  authorEmail.store = \ugrTFG@authorEmail,
+}
+
+\NewDocumentCommand\ugrTFGOptions{m}{%
+  \SetKeys[ugrTFG]{#1}%
+}
+
+% Define new commands for setting document metadata
+% 1. Document info
+\newcommand\titulo[1]{\title{#1}}
+\newcommand\autor[1]{\author{#1}}
+\newcommand\grado[1]{\SetKeys[ugrTFG]{degree = #1}}
+\newcommand\facultad[1]{\SetKeys[ugrTFG]{faculty = #1}}
+\newcommand\universidad[1]{\SetKeys[ugrTFG]{university = #1}}
+\newcommand\tutor[1]{\SetKeys[ugrTFG]{tutor = #1}}
+\newcommand\curso[1]{\SetKeys[ugrTFG]{academicYear = #1}}
+
 % IMAGEN PARA LA PORTADA
 % Existen varias opciones para la imagen de fondo de la portada del TFG. Todas ellas tienen en logotipo de la universidad de Granada en la cabecera. Las opciones son las siguientes:
 % 1. portada-ugr y portada-ugr-color: diseño con marca de agua basada en el logo de la UGR (en escala de grises y color).
@@ -263,23 +296,23 @@
         \Large
         \hfill\vfil
 
-        \large{\textsf{\miFacultad}}
+        \large{\textsf{\ugrTFG@faculty}}
         \vfill
 
-        {\large\textsc\miGrado} \vfill
+        {\large\textsc\ugrTFG@degree} \vfill
 
         {\large\textsc{trabajo de fin de grado}}
 
         \begin{flushleft}
           \Huge
           \setstretch{0.8}
-          \miTitulo
+          \@title
         \end{flushleft}
 
         \vfill\vfill\vfill\vfill
 
         \textsf{\normalsize{Presentado por:}}\\
-        {\normalsize\textrm{\miNombre}}
+        {\normalsize\textrm{\@author}}
         \bigskip
 
         \textsf{\normalsize{Curso académico \miCurso}}
@@ -297,10 +330,10 @@
     \vspace*{\stretch{1}}
 
     \begingroup
-    \huge{\miTitulo} \\ \bigskip
+    \huge{\@title} \\ \bigskip
     \endgroup
 
-    \textrm{\miNombre}
+    \textrm{\@author}
 
     \vspace{\stretch{5}}
 
@@ -313,7 +346,7 @@
 
   \vfill
 
-  \miNombre \textit{\miTitulo}.
+  \@author\ \textit{\@title}.
 
   Trabajo de fin de Grado. Curso académico \miCurso.
   \bigskip
@@ -328,12 +361,12 @@
   \end{minipage}
   \begin{minipage}[t]{0.30\textwidth}
     \flushright
-    \miGrado
+    \ugrTFG@degree
     \medskip
 
-    \miFacultad
+    \ugrTFG@faculty
     \medskip
 
-    \miUniversidad
+    \ugrTFG@university
   \end{minipage}
 }

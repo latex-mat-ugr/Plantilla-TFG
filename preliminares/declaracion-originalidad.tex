@@ -6,24 +6,26 @@
 %*******************************************************
 
 \thispagestyle{empty}
+\makeatletter
 
 \hfill\vfill
 
 \textsc{Declaración de originalidad}\\\bigskip
 
-D./Dña. \miNombre \\\medskip
+D./Dña. \@author \\\medskip
 
-Declaro explícitamente que el trabajo presentado como Trabajo de Fin de Grado (TFG), correspondiente al curso académico \miCurso, es original, entendido esto en el sentido de que no he utilizado para la elaboración del trabajo fuentes sin citarlas debidamente.
+Declaro explícitamente que el trabajo presentado como Trabajo de Fin de Grado (TFG), correspondiente al curso académico \ugrTFG@academicYear, es original, entendido esto en el sentido de que no he utilizado para la elaboración del trabajo fuentes sin citarlas debidamente.
 \medskip
 
-En Granada a \today 
+En Granada a \today
 \vspace{3cm}
-\begin{center} 
-Fdo: \miNombre 
+\begin{center}
+  Fdo: \@author
 
 \end{center}
 
 \vfill
 
+\makeatother
 \cleardoublepage
 \endinput

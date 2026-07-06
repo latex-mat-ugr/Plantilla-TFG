@@ -152,6 +152,41 @@
   pdfcreator={pdfLaTeX},%
 }
 
+% Navigation for tablets
+\ifugrTFG@tablet
+\RequirePackage{fontawesome7}
+\ProvideDocumentCommand{\ugrTFG@Button}{m m}{%
+  \Acrobatmenu{#2}{\color[rgb]{0.5,0,0}\large#1}% % Same as linkcolor in hyperref
+  % \Acrobatmenu{#2}{#1 \fbox{\texttt{#2}}}%
+}
+\ProvideDocumentCommand{\ugrTFG@navigation}{}{%
+  % \ugrTFG@Button{icon}{FirstPage}\qquad
+  % \ugrTFG@Button{icon}{LastPage}\\
+  % \ugrTFG@Button{icon}{PrevPage}\qquad
+  % \ugrTFG@Button{icon}{NextPage}\\
+  \hyperref[sec:tableofcontents]{\large\faBarsStaggered}
+  \qquad
+  \ugrTFG@Button{\faArrowRotateLeft}{GoBack} %\faCaretLeft
+  \qquad
+  \ugrTFG@Button{\faArrowRotateRight}{GoForward} % \faCaretRight
+  \qquad
+  \hyperref[sec:bibliography]{\large\faBook}
+}
+
+%---------- headers and footers --------------
+\usepackage{scrlayer-scrpage}
+% %-------- header
+% \ihead{}            % empty header
+% \chead{}            % empty header
+% \ohead{}            % empty header
+% %-------- footer
+% % \ifoot{\ugrTFG@navigation}   % inner footer
+\cfoot*[]{\ugrTFG@navigation}   % central footer
+\ofoot*[\pagemark]{\pagemark}   % outer footer
+\pagestyle{scrheadings}
+% \renrewcommand*{\chapterpagestyle}{plain.scrheadings}
+\fi
+
 % Etiquetas en español para el comando \autoref
 \def\chapterautorefname{Capítulo}
 \def\appendixautorefname{Apéndice}

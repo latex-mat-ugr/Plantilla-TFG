@@ -3,10 +3,12 @@
 
 \DeclareKeys[ugrTFG]{
   % Layout options
-  tablet.if = @tfco@tablet,
+  tablet.if = ugrTFG@tablet,
   tablet.initial:n = false,
   cover.store = \ugrTFG@cover,
   cover.initial:n = portada-ugr,
+  color.if = ugrTFG@color,
+  color.initial:n = true,
   % META DATA
   % Document information
   % Use the \title and \author commands for the title and author.
@@ -38,31 +40,37 @@
 % Existen varias opciones para la imagen de fondo de la portada del TFG. Todas ellas tienen en logotipo de la universidad de Granada en la cabecera. Las opciones son las siguientes:
 % 1. portada-ugr y portada-ugr-color: diseño con marca de agua basada en el logo de la UGR (en escala de grises y color).
 % 2. portada-ugr-sencilla y portada-ugr-sencilla-color: portada únicamente con el logotipo de la UGR en la cabecera.
-\newcommand{\archivoportada}{portada-ugr}
+% La variable de clase \ugrTFG@cover contiene el nombre del archivo a mostrar.
 
-% ===================================================================
-% OPCIONES DE LA CLASE
-% ===================================================================
-
-% PRINT
-\DeclareOption{print}{
-  \PassOptionsToClass{fontsize=10pt, paper=a4, twoside=true, BCOR=5mm, DIV=10}{scrbook}
+% Pass every unknown option to scrartcl class
+% Simple text-approach options
+\DeclareOption*{
+  \PassOptionsToClass{\CurrentOption}{scrbook}
 }
 
-% TABLET
-\DeclareOption{tablet}{
-  \PassOptionsToClass{fontsize=12pt, paper=19.7104cm:14.7828cm, twoside=false, BCOR=0cm, DIV=20}{scrbook}
-  % Para que la portada quede centrada correctamente hay que editar el
-  % archivo `portada.tex` y eliminar el entorno `addmargin`
+% Key-value options
+\DeclareUnknownKeyHandler{%
+  \PassOptionsToClass{\CurrentOption}{scrbook}
 }
 
-\DeclareOption{color}{
-  \renewcommand{\archivoportada}{portada-ugr-color}
-  % \PassOptionsToPackage[colorlinks = true, linkcolor = [rgb]{0.5, 0, 0}, urlcolor = [rgb]{0, 0, 0.5}, citecolor = [rgb]{0, 0.5, 0}, ]{hyperref}
-}
+% PROCESS OPTIONS ---------------------------------------------------
 \ProcessOptions\relax
+\ProcessKeyOptions[ugrTFG]\relax
+
+% Select appropriate class and options
+\ifugrTFG@tablet
+\PassOptionsToClass{fontsize=12pt, paper=19.7104cm:14.7828cm, twoside=false, BCOR=0cm, DIV=20}{scrbook}
+\else
+\PassOptionsToClass{fontsize=10pt, paper=a4, twoside=true, BCOR=5mm, DIV=10}{scrbook}
+\fi
 
 \LoadClass[headings=normal, headsepline=false, cleardoublepage=empty, chapterprefix=false, appendixprefix=false,  listof=totoc, index=totoc, bibliography=totoc]{scrbook}
+\recalctypearea
+
+\ifugrTFG@color
+\SetKeys[ugrTFG]{cover=portada-ugr-color}
+% \PassOptionsToPackage[colorlinks = true, linkcolor = [rgb]{0.5, 0, 0}, urlcolor = [rgb]{0, 0, 0.5}, citecolor = [rgb]{0, 0.5, 0}]{hyperref}
+\fi
 
 % -------------------------------------------------------------------
 % PAQUETES Y OPCIONES
@@ -270,7 +278,7 @@
 % PORTADA Y PÁGINA DE TÍTULO
 % -------------------------------------------------------------------
 
-% Definición de la imagen de fondo (ver comando \archivoportada).
+% Definición de la imagen de fondo (ver opción cover).
 \RequirePackage{eso-pic}
 \newcommand\BackgroundPic{%
   \put(0,0){%
@@ -279,7 +287,7 @@
       \centering
       % Indicar la imagen de fondo en el siguiente comando
       \includegraphics[width=\paperwidth,height=\paperheight,%
-      keepaspectratio]{\archivoportada}%
+      keepaspectratio]{\ugrTFG@cover}%
       \vfill
 }}}
 
@@ -294,7 +302,7 @@
     \begin{addmargin}[2.575cm]{0cm}
       \begin{flushleft}
         \Large
-        \hfill\vfil
+        \null\vspace{2em}
 
         \large{\textsf{\ugrTFG@faculty}}
         \vfill

@@ -354,7 +354,6 @@
 
         \vfill\vfill\vfill\vfill
 
-        \textsf{\normalsize{Presentado por:}}\\
         {\normalsize\textrm{\@author}}
         \bigskip
 
@@ -400,7 +399,7 @@
   \end{minipage}
   \begin{minipage}[t]{0.45\textwidth}
     \flushleft
-    \miTutor
+    \ugrTFG@tutor
   \end{minipage}
   \begin{minipage}[t]{0.30\textwidth}
     \flushright

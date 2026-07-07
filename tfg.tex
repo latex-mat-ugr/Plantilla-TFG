@@ -5,35 +5,28 @@
 
 % Francisco Torralbo Torralbo
 
-\documentclass[print, color]{ugrTFG}
+\documentclass{ugrTFG}
 
 % VERSIÓN ELECTRÓNICA PARA TABLETA
-% Cambiando la opción "print" por "tablet" generaremos un pdf adaptado para leerlo en tabletas de 9 pulgadas.
+% Activando la opción "tablet" generaremos un pdf adaptado para leerlo en tabletas de 9 pulgadas:
+% \documentclass[tablet]{ugrTFG}
 
 % -------------------------------------------------------------------
 % INFORMACIÓN DEL TFG Y EL AUTOR
 % -------------------------------------------------------------------
-
-\newcommand{\miTitulo}{Título del trabajo\xspace}
-\newcommand{\miNombre}{Nombre apellidos\xspace}
-\newcommand{\miGrado}{Grado en Matemáticas}
-\newcommand{\miFacultad}{Facultad de Ciencias}
-\newcommand{\miUniversidad}{Universidad de Granada}
-
-% Añadir tantos tutores como sea necesario separando cada uno de ellos mediante el comando `\medskip` y una línea en blanco
-\newcommand{\miTutor}{
+\titulo{Título del trabajo}
+\autor{Nombre Apellidos}
+\grado{Grado en Matemáticas}
+\facultad{Facultad de Ciencias}
+\universidad{Universidad de Granada}
+\curso{2025--2026}
+\tutor{
   Nombre del tutor 1 \\ \emph{Departamento del tutor 1}
 
   % Añadir tantos tutores como sea necesario.
 
   \medskip
   Nombre del tutor 2 \\ \emph{Departamento del tutor 2}
-}
-\newcommand{\miCurso}{2023-2024\xspace}
-
-\hypersetup{
-  pdftitle={\miTitulo},
-  pdfauthor={\textcopyright\ \miNombre, \miFacultad, \miUniversidad}
 }
 
 \begin{document}
@@ -94,6 +87,7 @@
 \backmatter % Desactiva la numeración de los capítulos
 \pdfbookmark[-1]{Referencias}{BM-Referencias}
 
+% -------------------------------------------------------------------
 % BIBLIOGRAFÍA
 %-------------------------------------------------------------------
 
@@ -101,6 +95,7 @@
 % Otros estilos bibliográficos: alpha-es, amsalpha, plain
 \begin{small}
   \bibliography{library.bib}
+  \label{sec:bibliography}
 \end{small}
 
 \end{document}

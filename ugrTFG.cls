@@ -1,35 +1,77 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ugrTFG}[2023/06/15 Clase de documento para TFG] %elaboraci\'on TFG en Matem\'aticas seg\'un normativa de la Universidad de Granada]
 
+\DeclareKeys[ugrTFG]{
+  % Layout options
+  tablet.if = ugrTFG@tablet,
+  tablet.initial:n = false,
+  cover.store = \ugrTFG@cover,
+  cover.initial:n = portada-ugr,
+  color.if = ugrTFG@color,
+  color.initial:n = true,
+  % META DATA
+  % Document information
+  % Use the \title and \author commands for the title and author.
+  degree.store = \ugrTFG@degree,
+  faculty.store = \ugrTFG@faculty,
+  university.store = \ugrTFG@university,
+  university.initial:n = Universidad de Granada,
+  tutor.store = \ugrTFG@tutor,
+  academicYear.store = \ugrTFG@academicYear,
+  % Author information
+  authorEmail.store = \ugrTFG@authorEmail,
+}
+
+\NewDocumentCommand\ugrTFGOptions{m}{%
+  \SetKeys[ugrTFG]{#1}%
+}
+
+% Define new commands for setting document metadata
+% 1. Document info
+\newcommand\titulo[1]{\title{#1}}
+\newcommand\autor[1]{\author{#1}}
+\newcommand\email[1]{\email{#1}}
+\newcommand\grado[1]{\SetKeys[ugrTFG]{degree = #1}}
+\newcommand\facultad[1]{\SetKeys[ugrTFG]{faculty = #1}}
+\newcommand\universidad[1]{\SetKeys[ugrTFG]{university = #1}}
+\newcommand\tutor[1]{\SetKeys[ugrTFG]{tutor = #1}}
+\newcommand\curso[1]{\SetKeys[ugrTFG]{academicYear = #1}}
+
 % IMAGEN PARA LA PORTADA
 % Existen varias opciones para la imagen de fondo de la portada del TFG. Todas ellas tienen en logotipo de la universidad de Granada en la cabecera. Las opciones son las siguientes:
 % 1. portada-ugr y portada-ugr-color: diseño con marca de agua basada en el logo de la UGR (en escala de grises y color).
 % 2. portada-ugr-sencilla y portada-ugr-sencilla-color: portada únicamente con el logotipo de la UGR en la cabecera.
-\newcommand{\archivoportada}{portada-ugr}
+% La variable de clase \ugrTFG@cover contiene el nombre del archivo a mostrar.
 
-% ===================================================================
-% OPCIONES DE LA CLASE
-% ===================================================================
-
-% PRINT
-\DeclareOption{print}{
-  \PassOptionsToClass{fontsize=10pt, paper=a4, twoside=true, BCOR=5mm, DIV=10}{scrbook}
+% Pass every unknown option to scrartcl class
+% Simple text-approach options
+\DeclareOption*{
+  \PassOptionsToClass{\CurrentOption}{scrbook}
 }
 
-% TABLET
-\DeclareOption{tablet}{
-  \PassOptionsToClass{fontsize=12pt, paper=19.7104cm:14.7828cm, twoside=false, BCOR=0cm, DIV=20}{scrbook}
-  % Para que la portada quede centrada correctamente hay que editar el
-  % archivo `portada.tex` y eliminar el entorno `addmargin`
+% Key-value options
+\DeclareUnknownKeyHandler{%
+  \PassOptionsToClass{\CurrentOption}{scrbook}
 }
 
-\DeclareOption{color}{
-  \renewcommand{\archivoportada}{portada-ugr-color}
-  % \PassOptionsToPackage[colorlinks = true, linkcolor = [rgb]{0.5, 0, 0}, urlcolor = [rgb]{0, 0, 0.5}, citecolor = [rgb]{0, 0.5, 0}, ]{hyperref}
-}
+% PROCESS OPTIONS ---------------------------------------------------
 \ProcessOptions\relax
+\ProcessKeyOptions[ugrTFG]\relax
+
+% Select appropriate class and options
+\ifugrTFG@tablet
+\PassOptionsToClass{fontsize=12pt, paper=19.7104cm:14.7828cm, twoside=false, BCOR=0cm, DIV=20}{scrbook}
+\else
+\PassOptionsToClass{fontsize=10pt, paper=a4, twoside=true, BCOR=5mm, DIV=10}{scrbook}
+\fi
 
 \LoadClass[headings=normal, headsepline=false, cleardoublepage=empty, chapterprefix=false, appendixprefix=false,  listof=totoc, index=totoc, bibliography=totoc]{scrbook}
+\recalctypearea
+
+\ifugrTFG@color
+\SetKeys[ugrTFG]{cover=portada-ugr-color}
+% \PassOptionsToPackage[colorlinks = true, linkcolor = [rgb]{0.5, 0, 0}, urlcolor = [rgb]{0, 0, 0.5}, citecolor = [rgb]{0, 0.5, 0}]{hyperref}
+\fi
 
 % -------------------------------------------------------------------
 % PAQUETES Y OPCIONES
@@ -110,6 +152,41 @@
   pdfkeywords={},%
   pdfcreator={pdfLaTeX},%
 }
+
+% Navigation for tablets
+\ifugrTFG@tablet
+\RequirePackage{fontawesome7}
+\ProvideDocumentCommand{\ugrTFG@Button}{m m}{%
+  \Acrobatmenu{#2}{\color[rgb]{0.5,0,0}\large#1}% % Same as linkcolor in hyperref
+  % \Acrobatmenu{#2}{#1 \fbox{\texttt{#2}}}%
+}
+\ProvideDocumentCommand{\ugrTFG@navigation}{}{%
+  % \ugrTFG@Button{icon}{FirstPage}\qquad
+  % \ugrTFG@Button{icon}{LastPage}\\
+  % \ugrTFG@Button{icon}{PrevPage}\qquad
+  % \ugrTFG@Button{icon}{NextPage}\\
+  \hyperref[sec:tableofcontents]{\large\faBarsStaggered}
+  \qquad
+  \ugrTFG@Button{\faArrowRotateLeft}{GoBack} %\faCaretLeft
+  \qquad
+  \ugrTFG@Button{\faArrowRotateRight}{GoForward} % \faCaretRight
+  \qquad
+  \hyperref[sec:bibliography]{\large\faBook}
+}
+
+%---------- headers and footers --------------
+\usepackage{scrlayer-scrpage}
+% %-------- header
+% \ihead{}            % empty header
+% \chead{}            % empty header
+% \ohead{}            % empty header
+% %-------- footer
+% % \ifoot{\ugrTFG@navigation}   % inner footer
+\cfoot*[]{\ugrTFG@navigation}   % central footer
+\ofoot*[\pagemark]{\pagemark}   % outer footer
+\pagestyle{scrheadings}
+% \renrewcommand*{\chapterpagestyle}{plain.scrheadings}
+\fi
 
 % Etiquetas en español para el comando \autoref
 \def\chapterautorefname{Capítulo}
@@ -237,7 +314,7 @@
 % PORTADA Y PÁGINA DE TÍTULO
 % -------------------------------------------------------------------
 
-% Definición de la imagen de fondo (ver comando \archivoportada).
+% Definición de la imagen de fondo (ver opción cover).
 \RequirePackage{eso-pic}
 \newcommand\BackgroundPic{%
   \put(0,0){%
@@ -246,7 +323,7 @@
       \centering
       % Indicar la imagen de fondo en el siguiente comando
       \includegraphics[width=\paperwidth,height=\paperheight,%
-      keepaspectratio]{\archivoportada}%
+      keepaspectratio]{\ugrTFG@cover}%
       \vfill
 }}}
 
@@ -261,28 +338,27 @@
     \begin{addmargin}[2.575cm]{0cm}
       \begin{flushleft}
         \Large
-        \hfill\vfil
+        \null\vspace{2em}
 
-        \large{\textsf{\miFacultad}}
+        \large{\textsf{\ugrTFG@faculty}}
         \vfill
 
-        {\large\textsc\miGrado} \vfill
+        {\large\textsc\ugrTFG@degree} \vfill
 
         {\large\textsc{trabajo de fin de grado}}
 
         \begin{flushleft}
           \Huge
           \setstretch{0.8}
-          \miTitulo
+          \@title
         \end{flushleft}
 
         \vfill\vfill\vfill\vfill
 
-        \textsf{\normalsize{Presentado por:}}\\
-        {\normalsize\textrm{\miNombre}}
+        {\normalsize\textrm{\@author}}
         \bigskip
 
-        \textsf{\normalsize{Curso académico \miCurso}}
+        \textsf{\normalsize{Curso académico \ugrTFG@academicYear}}
       \end{flushleft}
     \end{addmargin}
 
@@ -297,10 +373,10 @@
     \vspace*{\stretch{1}}
 
     \begingroup
-    \huge{\miTitulo} \\ \bigskip
+    \huge{\@title} \\ \bigskip
     \endgroup
 
-    \textrm{\miNombre}
+    \textrm{\@author}
 
     \vspace{\stretch{5}}
 
@@ -313,27 +389,34 @@
 
   \vfill
 
-  \miNombre \textit{\miTitulo}.
+  \@author\ \textit{\@title}.
 
-  Trabajo de fin de Grado. Curso académico \miCurso.
+  Trabajo de fin de Grado. Curso académico \ugrTFG@academicYear.
   \bigskip
 
-  \begin{minipage}[t]{0.25\textwidth}
+  \begin{minipage}[t]{0.20\linewidth}
     \flushleft
     \textbf{Responsable de tutorización}
-  \end{minipage}
-  \begin{minipage}[t]{0.45\textwidth}
+  \end{minipage}%
+  \begin{minipage}[t]{0.45\linewidth}
     \flushleft
-    \miTutor
-  \end{minipage}
-  \begin{minipage}[t]{0.30\textwidth}
+    \ugrTFG@tutor
+  \end{minipage}%
+  \begin{minipage}[t]{0.3\linewidth}
     \flushright
-    \miGrado
+    \ugrTFG@degree
     \medskip
 
-    \miFacultad
+    \ugrTFG@faculty
     \medskip
 
-    \miUniversidad
-  \end{minipage}
+    \ugrTFG@university
+  \end{minipage}%
+}
+
+\AtBeginDocument{
+  \hypersetup{
+    pdftitle={\@title},
+    pdfauthor={\textcopyright\ \@author, \ugrTFG@faculty, \ugrTFG@university}
+  }
 }

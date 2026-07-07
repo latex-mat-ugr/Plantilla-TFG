@@ -30,6 +30,7 @@
 % 1. Document info
 \newcommand\titulo[1]{\title{#1}}
 \newcommand\autor[1]{\author{#1}}
+\newcommand\email[1]{\email{#1}}
 \newcommand\grado[1]{\SetKeys[ugrTFG]{degree = #1}}
 \newcommand\facultad[1]{\SetKeys[ugrTFG]{faculty = #1}}
 \newcommand\universidad[1]{\SetKeys[ugrTFG]{university = #1}}
@@ -393,15 +394,15 @@
   Trabajo de fin de Grado. Curso académico \ugrTFG@academicYear.
   \bigskip
 
-  \begin{minipage}[t]{0.25\textwidth}
+  \begin{minipage}[t]{0.20\linewidth}
     \flushleft
     \textbf{Responsable de tutorización}
-  \end{minipage}
-  \begin{minipage}[t]{0.45\textwidth}
+  \end{minipage}%
+  \begin{minipage}[t]{0.45\linewidth}
     \flushleft
     \ugrTFG@tutor
-  \end{minipage}
-  \begin{minipage}[t]{0.30\textwidth}
+  \end{minipage}%
+  \begin{minipage}[t]{0.3\linewidth}
     \flushright
     \ugrTFG@degree
     \medskip
@@ -410,7 +411,7 @@
     \medskip
 
     \ugrTFG@university
-  \end{minipage}
+  \end{minipage}%
 }
 
 \AtBeginDocument{

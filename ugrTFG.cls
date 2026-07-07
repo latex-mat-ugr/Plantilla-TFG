@@ -412,3 +412,10 @@
     \ugrTFG@university
   \end{minipage}
 }
+
+\AtBeginDocument{
+  \hypersetup{
+    pdftitle={\@title},
+    pdfauthor={\textcopyright\ \@author, \ugrTFG@faculty, \ugrTFG@university}
+  }
+}

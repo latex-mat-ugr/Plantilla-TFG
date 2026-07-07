@@ -8,7 +8,8 @@
 \documentclass{ugrTFG}
 
 % VERSIÓN ELECTRÓNICA PARA TABLETA
-% Cambiando la opción "print" por "tablet" generaremos un pdf adaptado para leerlo en tabletas de 9 pulgadas.
+% Activando la opción "tablet" generaremos un pdf adaptado para leerlo en tabletas de 9 pulgadas:
+% \documentclass[tablet]{ugrTFG}
 
 % -------------------------------------------------------------------
 % INFORMACIÓN DEL TFG Y EL AUTOR
@@ -27,13 +28,6 @@
   \medskip
   Nombre del tutor 2 \\ \emph{Departamento del tutor 2}
 }
-
-\makeatletter
-\hypersetup{
-  pdftitle={\@title},
-  pdfauthor={\textcopyright\ \@author, \ugrTFG@faculty, \ugrTFG@university}
-}
-\makeatother
 
 \begin{document}
 
@@ -93,6 +87,7 @@
 \backmatter % Desactiva la numeración de los capítulos
 \pdfbookmark[-1]{Referencias}{BM-Referencias}
 
+% -------------------------------------------------------------------
 % BIBLIOGRAFÍA
 %-------------------------------------------------------------------
 

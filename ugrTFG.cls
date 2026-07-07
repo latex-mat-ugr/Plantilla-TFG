@@ -358,7 +358,7 @@
         {\normalsize\textrm{\@author}}
         \bigskip
 
-        \textsf{\normalsize{Curso académico \miCurso}}
+        \textsf{\normalsize{Curso académico \ugrTFG@academicYear}}
       \end{flushleft}
     \end{addmargin}
 
@@ -391,7 +391,7 @@
 
   \@author\ \textit{\@title}.
 
-  Trabajo de fin de Grado. Curso académico \miCurso.
+  Trabajo de fin de Grado. Curso académico \ugrTFG@academicYear.
   \bigskip
 
   \begin{minipage}[t]{0.25\textwidth}
